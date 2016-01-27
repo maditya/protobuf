@@ -36,8 +36,9 @@ import (
 	descriptor "github.com/maditya/protobuf/protoc-gen-gogo/descriptor"
 )
 
-func NotInPackageGoogleProtobuf(file *descriptor.FileDescriptorProto) bool {
-	return !strings.HasPrefix(file.GetPackage(), "google.protobuf")
+func NotGoogleProtobufDescriptorProto(file *descriptor.FileDescriptorProto) bool {
+	// can not just check if file.GetName() == "google/protobuf/descriptor.proto" because we do not want to assume compile path
+	return !(file.GetPackage() == "google.protobuf" && strings.HasSuffix(file.GetName(), "descriptor.proto"))
 }
 
 func FilterFiles(files []*descriptor.FileDescriptorProto, f func(file *descriptor.FileDescriptorProto) bool) []*descriptor.FileDescriptorProto {
