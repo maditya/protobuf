@@ -16,12 +16,12 @@
 */
 package required
 
-import proto "github.com/gogo/protobuf/proto"
+import proto "github.com/maditya/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/gogoproto"
+import _ "github.com/maditya/protobuf/gogoproto"
 
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
+import github_com_maditya_protobuf_proto "github.com/maditya/protobuf/proto"
 
 import io "io"
 
@@ -366,7 +366,7 @@ func (m *RequiredExample) MarshalTo(data []byte) (int, error) {
 	var l int
 	_ = l
 	if m.TheRequiredString == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("theRequiredString")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("theRequiredString")
 	} else {
 		data[i] = 0xa
 		i++
@@ -491,91 +491,91 @@ func (m *NinOptNative) MarshalTo(data []byte) (int, error) {
 	var l int
 	_ = l
 	if m.Field1 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field1")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field1")
 	} else {
 		data[i] = 0x9
 		i++
 		i = encodeFixed64Requiredexample(data, i, uint64(math.Float64bits(float64(*m.Field1))))
 	}
 	if m.Field2 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field2")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field2")
 	} else {
 		data[i] = 0x15
 		i++
 		i = encodeFixed32Requiredexample(data, i, uint32(math.Float32bits(float32(*m.Field2))))
 	}
 	if m.Field3 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field3")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field3")
 	} else {
 		data[i] = 0x18
 		i++
 		i = encodeVarintRequiredexample(data, i, uint64(*m.Field3))
 	}
 	if m.Field4 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field4")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field4")
 	} else {
 		data[i] = 0x20
 		i++
 		i = encodeVarintRequiredexample(data, i, uint64(*m.Field4))
 	}
 	if m.Field5 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field5")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field5")
 	} else {
 		data[i] = 0x28
 		i++
 		i = encodeVarintRequiredexample(data, i, uint64(*m.Field5))
 	}
 	if m.Field6 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field6")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field6")
 	} else {
 		data[i] = 0x30
 		i++
 		i = encodeVarintRequiredexample(data, i, uint64(*m.Field6))
 	}
 	if m.Field7 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field7")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field7")
 	} else {
 		data[i] = 0x38
 		i++
 		i = encodeVarintRequiredexample(data, i, uint64((uint32(*m.Field7)<<1)^uint32((*m.Field7>>31))))
 	}
 	if m.Field8 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field8")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field8")
 	} else {
 		data[i] = 0x40
 		i++
 		i = encodeVarintRequiredexample(data, i, uint64((uint64(*m.Field8)<<1)^uint64((*m.Field8>>63))))
 	}
 	if m.Field9 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field9")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field9")
 	} else {
 		data[i] = 0x4d
 		i++
 		i = encodeFixed32Requiredexample(data, i, uint32(*m.Field9))
 	}
 	if m.Field10 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field10")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field10")
 	} else {
 		data[i] = 0x55
 		i++
 		i = encodeFixed32Requiredexample(data, i, uint32(*m.Field10))
 	}
 	if m.Field11 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field11")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field11")
 	} else {
 		data[i] = 0x59
 		i++
 		i = encodeFixed64Requiredexample(data, i, uint64(*m.Field11))
 	}
 	if m.Field12 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field12")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field12")
 	} else {
 		data[i] = 0x61
 		i++
 		i = encodeFixed64Requiredexample(data, i, uint64(*m.Field12))
 	}
 	if m.Field13 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field13")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field13")
 	} else {
 		data[i] = 0x68
 		i++
@@ -587,7 +587,7 @@ func (m *NinOptNative) MarshalTo(data []byte) (int, error) {
 		i++
 	}
 	if m.Field14 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field14")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field14")
 	} else {
 		data[i] = 0x72
 		i++
@@ -595,7 +595,7 @@ func (m *NinOptNative) MarshalTo(data []byte) (int, error) {
 		i += copy(data[i:], *m.Field14)
 	}
 	if m.Field15 == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field15")
+		return 0, github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field15")
 	} else {
 		data[i] = 0x7a
 		i++
@@ -1164,7 +1164,7 @@ func (m *RequiredExample) Unmarshal(data []byte) error {
 		}
 	}
 	if hasFields[0]&uint64(0x00000001) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("theRequiredString")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("theRequiredString")
 	}
 
 	if iNdEx > l {
@@ -1524,49 +1524,49 @@ func (m *NidOptNative) Unmarshal(data []byte) error {
 		}
 	}
 	if hasFields[0]&uint64(0x00000001) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field1")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field1")
 	}
 	if hasFields[0]&uint64(0x00000002) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field2")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field2")
 	}
 	if hasFields[0]&uint64(0x00000004) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field3")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field3")
 	}
 	if hasFields[0]&uint64(0x00000008) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field4")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field4")
 	}
 	if hasFields[0]&uint64(0x00000010) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field5")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field5")
 	}
 	if hasFields[0]&uint64(0x00000020) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field6")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field6")
 	}
 	if hasFields[0]&uint64(0x00000040) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field7")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field7")
 	}
 	if hasFields[0]&uint64(0x00000080) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field8")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field8")
 	}
 	if hasFields[0]&uint64(0x00000100) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field9")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field9")
 	}
 	if hasFields[0]&uint64(0x00000200) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field10")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field10")
 	}
 	if hasFields[0]&uint64(0x00000400) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field11")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field11")
 	}
 	if hasFields[0]&uint64(0x00000800) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field12")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field12")
 	}
 	if hasFields[0]&uint64(0x00001000) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field13")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field13")
 	}
 	if hasFields[0]&uint64(0x00002000) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field14")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field14")
 	}
 	if hasFields[0]&uint64(0x00004000) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field15")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field15")
 	}
 
 	if iNdEx > l {
@@ -1939,49 +1939,49 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 		}
 	}
 	if hasFields[0]&uint64(0x00000001) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field1")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field1")
 	}
 	if hasFields[0]&uint64(0x00000002) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field2")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field2")
 	}
 	if hasFields[0]&uint64(0x00000004) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field3")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field3")
 	}
 	if hasFields[0]&uint64(0x00000008) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field4")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field4")
 	}
 	if hasFields[0]&uint64(0x00000010) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field5")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field5")
 	}
 	if hasFields[0]&uint64(0x00000020) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field6")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field6")
 	}
 	if hasFields[0]&uint64(0x00000040) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field7")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field7")
 	}
 	if hasFields[0]&uint64(0x00000080) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field8")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field8")
 	}
 	if hasFields[0]&uint64(0x00000100) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field9")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field9")
 	}
 	if hasFields[0]&uint64(0x00000200) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field10")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field10")
 	}
 	if hasFields[0]&uint64(0x00000400) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field11")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field11")
 	}
 	if hasFields[0]&uint64(0x00000800) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field12")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field12")
 	}
 	if hasFields[0]&uint64(0x00001000) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field13")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field13")
 	}
 	if hasFields[0]&uint64(0x00002000) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field14")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field14")
 	}
 	if hasFields[0]&uint64(0x00004000) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Field15")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Field15")
 	}
 
 	if iNdEx > l {

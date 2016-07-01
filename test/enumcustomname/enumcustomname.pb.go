@@ -16,11 +16,11 @@
 */
 package enumcustomname
 
-import proto "github.com/gogo/protobuf/proto"
+import proto "github.com/maditya/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/gogoproto"
-import test "github.com/gogo/protobuf/test"
+import _ "github.com/maditya/protobuf/gogoproto"
+import test "github.com/maditya/protobuf/test"
 
 import strconv "strconv"
 

@@ -1,5 +1,5 @@
 // Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
-// http://github.com/gogo/protobuf
+// http://github.com/maditya/protobuf
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -27,11 +27,11 @@
 package compare
 
 import (
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/proto"
-	descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
-	"github.com/gogo/protobuf/vanity"
+	"github.com/maditya/protobuf/gogoproto"
+	"github.com/maditya/protobuf/proto"
+	descriptor "github.com/maditya/protobuf/protoc-gen-gogo/descriptor"
+	"github.com/maditya/protobuf/protoc-gen-gogo/generator"
+	"github.com/maditya/protobuf/vanity"
 )
 
 type plugin struct {
@@ -58,7 +58,7 @@ func (p *plugin) Generate(file *generator.FileDescriptor) {
 	p.PluginImports = generator.NewPluginImports(p.Generator)
 	p.fmtPkg = p.NewImport("fmt")
 	p.bytesPkg = p.NewImport("bytes")
-	p.sortkeysPkg = p.NewImport("github.com/gogo/protobuf/sortkeys")
+	p.sortkeysPkg = p.NewImport("github.com/maditya/protobuf/sortkeys")
 
 	for _, msg := range file.Messages() {
 		if msg.DescriptorProto.GetOptions().GetMapEntry() {

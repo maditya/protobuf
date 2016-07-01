@@ -16,15 +16,15 @@
 */
 package unmarshalmerge
 
-import proto "github.com/gogo/protobuf/proto"
+import proto "github.com/maditya/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/gogoproto"
+import _ "github.com/maditya/protobuf/gogoproto"
 
 import bytes "bytes"
 
 import strings "strings"
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
+import github_com_maditya_protobuf_proto "github.com/maditya/protobuf/proto"
 import sort "sort"
 import strconv "strconv"
 import reflect "reflect"
@@ -660,7 +660,7 @@ func valueToGoStringUnmarshalmerge(v interface{}, typ string) string {
 	pv := reflect.Indirect(rv).Interface()
 	return fmt.Sprintf("func(v %v) *%v { return &v } ( %#v )", typ, typ, pv)
 }
-func extensionToGoStringUnmarshalmerge(e map[int32]github_com_gogo_protobuf_proto.Extension) string {
+func extensionToGoStringUnmarshalmerge(e map[int32]github_com_maditya_protobuf_proto.Extension) string {
 	if e == nil {
 		return "nil"
 	}
@@ -1325,16 +1325,16 @@ func (m *IntMerge) Unmarshal(data []byte) error {
 		}
 	}
 	if hasFields[0]&uint64(0x00000001) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Int64")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Int64")
 	}
 	if hasFields[0]&uint64(0x00000002) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Sint32")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Sint32")
 	}
 	if hasFields[0]&uint64(0x00000004) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Uint32")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Uint32")
 	}
 	if hasFields[0]&uint64(0x00000008) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("Sfixed32")
+		return github_com_maditya_protobuf_proto.NewRequiredNotSetError("Sfixed32")
 	}
 
 	if iNdEx > l {

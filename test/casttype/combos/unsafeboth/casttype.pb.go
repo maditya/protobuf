@@ -14,15 +14,15 @@
 */
 package casttype
 
-import proto "github.com/gogo/protobuf/proto"
+import proto "github.com/maditya/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/gogoproto"
+import _ "github.com/maditya/protobuf/gogoproto"
 
-import github_com_gogo_protobuf_test_casttype "github.com/gogo/protobuf/test/casttype"
+import github_com_maditya_protobuf_test_casttype "github.com/maditya/protobuf/test/casttype"
 
-import github_com_gogo_protobuf_protoc_gen_gogo_descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
+import github_com_maditya_protobuf_protoc_gen_gogo_descriptor "github.com/maditya/protobuf/protoc-gen-gogo/descriptor"
+import github_com_maditya_protobuf_proto "github.com/maditya/protobuf/proto"
 import compress_gzip "compress/gzip"
 import bytes "bytes"
 import io_ioutil "io/ioutil"
@@ -31,7 +31,7 @@ import strings "strings"
 import sort "sort"
 import strconv "strconv"
 import reflect "reflect"
-import github_com_gogo_protobuf_sortkeys "github.com/gogo/protobuf/sortkeys"
+import github_com_maditya_protobuf_sortkeys "github.com/maditya/protobuf/sortkeys"
 
 import errors "errors"
 
@@ -49,19 +49,19 @@ const _ = proto.GoGoProtoPackageIsVersion1
 type Castaway struct {
 	Int32Ptr         *int32                                                                                                      `protobuf:"varint,1,opt,name=Int32Ptr,json=int32Ptr,casttype=int32" json:"Int32Ptr,omitempty"`
 	Int32            int32                                                                                                       `protobuf:"varint,2,opt,name=Int32,json=int32,casttype=int32" json:"Int32"`
-	MyUint64Ptr      *github_com_gogo_protobuf_test_casttype.MyUint64Type                                                        `protobuf:"varint,3,opt,name=MyUint64Ptr,json=myUint64Ptr,casttype=github.com/gogo/protobuf/test/casttype.MyUint64Type" json:"MyUint64Ptr,omitempty"`
-	MyUint64         github_com_gogo_protobuf_test_casttype.MyUint64Type                                                         `protobuf:"varint,4,opt,name=MyUint64,json=myUint64,casttype=github.com/gogo/protobuf/test/casttype.MyUint64Type" json:"MyUint64"`
-	MyFloat32Ptr     *github_com_gogo_protobuf_test_casttype.MyFloat32Type                                                       `protobuf:"fixed32,5,opt,name=MyFloat32Ptr,json=myFloat32Ptr,casttype=github.com/gogo/protobuf/test/casttype.MyFloat32Type" json:"MyFloat32Ptr,omitempty"`
-	MyFloat32        github_com_gogo_protobuf_test_casttype.MyFloat32Type                                                        `protobuf:"fixed32,6,opt,name=MyFloat32,json=myFloat32,casttype=github.com/gogo/protobuf/test/casttype.MyFloat32Type" json:"MyFloat32"`
-	MyFloat64Ptr     *github_com_gogo_protobuf_test_casttype.MyFloat64Type                                                       `protobuf:"fixed64,7,opt,name=MyFloat64Ptr,json=myFloat64Ptr,casttype=github.com/gogo/protobuf/test/casttype.MyFloat64Type" json:"MyFloat64Ptr,omitempty"`
-	MyFloat64        github_com_gogo_protobuf_test_casttype.MyFloat64Type                                                        `protobuf:"fixed64,8,opt,name=MyFloat64,json=myFloat64,casttype=github.com/gogo/protobuf/test/casttype.MyFloat64Type" json:"MyFloat64"`
-	MyBytes          github_com_gogo_protobuf_test_casttype.Bytes                                                                `protobuf:"bytes,9,opt,name=MyBytes,json=myBytes,casttype=github.com/gogo/protobuf/test/casttype.Bytes" json:"MyBytes,omitempty"`
+	MyUint64Ptr      *github_com_maditya_protobuf_test_casttype.MyUint64Type                                                        `protobuf:"varint,3,opt,name=MyUint64Ptr,json=myUint64Ptr,casttype=github.com/maditya/protobuf/test/casttype.MyUint64Type" json:"MyUint64Ptr,omitempty"`
+	MyUint64         github_com_maditya_protobuf_test_casttype.MyUint64Type                                                         `protobuf:"varint,4,opt,name=MyUint64,json=myUint64,casttype=github.com/maditya/protobuf/test/casttype.MyUint64Type" json:"MyUint64"`
+	MyFloat32Ptr     *github_com_maditya_protobuf_test_casttype.MyFloat32Type                                                       `protobuf:"fixed32,5,opt,name=MyFloat32Ptr,json=myFloat32Ptr,casttype=github.com/maditya/protobuf/test/casttype.MyFloat32Type" json:"MyFloat32Ptr,omitempty"`
+	MyFloat32        github_com_maditya_protobuf_test_casttype.MyFloat32Type                                                        `protobuf:"fixed32,6,opt,name=MyFloat32,json=myFloat32,casttype=github.com/maditya/protobuf/test/casttype.MyFloat32Type" json:"MyFloat32"`
+	MyFloat64Ptr     *github_com_maditya_protobuf_test_casttype.MyFloat64Type                                                       `protobuf:"fixed64,7,opt,name=MyFloat64Ptr,json=myFloat64Ptr,casttype=github.com/maditya/protobuf/test/casttype.MyFloat64Type" json:"MyFloat64Ptr,omitempty"`
+	MyFloat64        github_com_maditya_protobuf_test_casttype.MyFloat64Type                                                        `protobuf:"fixed64,8,opt,name=MyFloat64,json=myFloat64,casttype=github.com/maditya/protobuf/test/casttype.MyFloat64Type" json:"MyFloat64"`
+	MyBytes          github_com_maditya_protobuf_test_casttype.Bytes                                                                `protobuf:"bytes,9,opt,name=MyBytes,json=myBytes,casttype=github.com/maditya/protobuf/test/casttype.Bytes" json:"MyBytes,omitempty"`
 	NormalBytes      []byte                                                                                                      `protobuf:"bytes,10,opt,name=NormalBytes,json=normalBytes" json:"NormalBytes,omitempty"`
-	MyUint64S        []github_com_gogo_protobuf_test_casttype.MyUint64Type                                                       `protobuf:"varint,11,rep,name=MyUint64s,json=myUint64s,casttype=github.com/gogo/protobuf/test/casttype.MyUint64Type" json:"MyUint64s,omitempty"`
-	MyMap            github_com_gogo_protobuf_test_casttype.MyMapType                                                            `protobuf:"bytes,12,rep,name=MyMap,json=myMap,casttype=github.com/gogo/protobuf/test/casttype.MyMapType" json:"MyMap,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
-	MyCustomMap      map[github_com_gogo_protobuf_test_casttype.MyStringType]github_com_gogo_protobuf_test_casttype.MyUint64Type `protobuf:"bytes,13,rep,name=MyCustomMap,json=myCustomMap,castkey=github.com/gogo/protobuf/test/casttype.MyStringType,castvalue=github.com/gogo/protobuf/test/casttype.MyUint64Type" json:"MyCustomMap,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
-	MyNullableMap    map[github_com_gogo_protobuf_test_casttype.MyInt32Type]*Wilson                                              `protobuf:"bytes,14,rep,name=MyNullableMap,json=myNullableMap,castkey=github.com/gogo/protobuf/test/casttype.MyInt32Type" json:"MyNullableMap,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	MyEmbeddedMap    map[github_com_gogo_protobuf_test_casttype.MyInt32Type]Wilson                                               `protobuf:"bytes,15,rep,name=MyEmbeddedMap,json=myEmbeddedMap,castkey=github.com/gogo/protobuf/test/casttype.MyInt32Type" json:"MyEmbeddedMap" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	MyUint64S        []github_com_maditya_protobuf_test_casttype.MyUint64Type                                                       `protobuf:"varint,11,rep,name=MyUint64s,json=myUint64s,casttype=github.com/maditya/protobuf/test/casttype.MyUint64Type" json:"MyUint64s,omitempty"`
+	MyMap            github_com_maditya_protobuf_test_casttype.MyMapType                                                            `protobuf:"bytes,12,rep,name=MyMap,json=myMap,casttype=github.com/maditya/protobuf/test/casttype.MyMapType" json:"MyMap,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+	MyCustomMap      map[github_com_maditya_protobuf_test_casttype.MyStringType]github_com_maditya_protobuf_test_casttype.MyUint64Type `protobuf:"bytes,13,rep,name=MyCustomMap,json=myCustomMap,castkey=github.com/maditya/protobuf/test/casttype.MyStringType,castvalue=github.com/maditya/protobuf/test/casttype.MyUint64Type" json:"MyCustomMap,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+	MyNullableMap    map[github_com_maditya_protobuf_test_casttype.MyInt32Type]*Wilson                                              `protobuf:"bytes,14,rep,name=MyNullableMap,json=myNullableMap,castkey=github.com/maditya/protobuf/test/casttype.MyInt32Type" json:"MyNullableMap,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	MyEmbeddedMap    map[github_com_maditya_protobuf_test_casttype.MyInt32Type]Wilson                                               `protobuf:"bytes,15,rep,name=MyEmbeddedMap,json=myEmbeddedMap,castkey=github.com/maditya/protobuf/test/casttype.MyInt32Type" json:"MyEmbeddedMap" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_unrecognized []byte                                                                                                      `json:"-"`
 }
 
@@ -82,14 +82,14 @@ func init() {
 	proto.RegisterType((*Castaway)(nil), "casttype.Castaway")
 	proto.RegisterType((*Wilson)(nil), "casttype.Wilson")
 }
-func (this *Castaway) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *Castaway) Description() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
 	return CasttypeDescription()
 }
-func (this *Wilson) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *Wilson) Description() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
 	return CasttypeDescription()
 }
-func CasttypeDescription() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
-	d := &github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet{}
+func CasttypeDescription() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+	d := &github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet{}
 	var gzipped = []byte{
 		// 3788 bytes of a gzipped FileDescriptorSet
 		0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xcc, 0x5a, 0x5b, 0x6c, 0x1b, 0x67,
@@ -339,7 +339,7 @@ func CasttypeDescription() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descr
 	if err != nil {
 		panic(err)
 	}
-	if err := github_com_gogo_protobuf_proto.Unmarshal(ungzipped, d); err != nil {
+	if err := github_com_maditya_protobuf_proto.Unmarshal(ungzipped, d); err != nil {
 		panic(err)
 	}
 	return d
@@ -676,29 +676,29 @@ func (this *Wilson) Equal(that interface{}) bool {
 }
 
 type CastawayFace interface {
-	Proto() github_com_gogo_protobuf_proto.Message
+	Proto() github_com_maditya_protobuf_proto.Message
 	GetInt32Ptr() *int32
 	GetInt32() int32
-	GetMyUint64Ptr() *github_com_gogo_protobuf_test_casttype.MyUint64Type
-	GetMyUint64() github_com_gogo_protobuf_test_casttype.MyUint64Type
-	GetMyFloat32Ptr() *github_com_gogo_protobuf_test_casttype.MyFloat32Type
-	GetMyFloat32() github_com_gogo_protobuf_test_casttype.MyFloat32Type
-	GetMyFloat64Ptr() *github_com_gogo_protobuf_test_casttype.MyFloat64Type
-	GetMyFloat64() github_com_gogo_protobuf_test_casttype.MyFloat64Type
-	GetMyBytes() github_com_gogo_protobuf_test_casttype.Bytes
+	GetMyUint64Ptr() *github_com_maditya_protobuf_test_casttype.MyUint64Type
+	GetMyUint64() github_com_maditya_protobuf_test_casttype.MyUint64Type
+	GetMyFloat32Ptr() *github_com_maditya_protobuf_test_casttype.MyFloat32Type
+	GetMyFloat32() github_com_maditya_protobuf_test_casttype.MyFloat32Type
+	GetMyFloat64Ptr() *github_com_maditya_protobuf_test_casttype.MyFloat64Type
+	GetMyFloat64() github_com_maditya_protobuf_test_casttype.MyFloat64Type
+	GetMyBytes() github_com_maditya_protobuf_test_casttype.Bytes
 	GetNormalBytes() []byte
-	GetMyUint64S() []github_com_gogo_protobuf_test_casttype.MyUint64Type
-	GetMyMap() github_com_gogo_protobuf_test_casttype.MyMapType
-	GetMyCustomMap() map[github_com_gogo_protobuf_test_casttype.MyStringType]github_com_gogo_protobuf_test_casttype.MyUint64Type
-	GetMyNullableMap() map[github_com_gogo_protobuf_test_casttype.MyInt32Type]*Wilson
-	GetMyEmbeddedMap() map[github_com_gogo_protobuf_test_casttype.MyInt32Type]Wilson
+	GetMyUint64S() []github_com_maditya_protobuf_test_casttype.MyUint64Type
+	GetMyMap() github_com_maditya_protobuf_test_casttype.MyMapType
+	GetMyCustomMap() map[github_com_maditya_protobuf_test_casttype.MyStringType]github_com_maditya_protobuf_test_casttype.MyUint64Type
+	GetMyNullableMap() map[github_com_maditya_protobuf_test_casttype.MyInt32Type]*Wilson
+	GetMyEmbeddedMap() map[github_com_maditya_protobuf_test_casttype.MyInt32Type]Wilson
 }
 
-func (this *Castaway) Proto() github_com_gogo_protobuf_proto.Message {
+func (this *Castaway) Proto() github_com_maditya_protobuf_proto.Message {
 	return this
 }
 
-func (this *Castaway) TestProto() github_com_gogo_protobuf_proto.Message {
+func (this *Castaway) TestProto() github_com_maditya_protobuf_proto.Message {
 	return NewCastawayFromFace(this)
 }
 
@@ -710,31 +710,31 @@ func (this *Castaway) GetInt32() int32 {
 	return this.Int32
 }
 
-func (this *Castaway) GetMyUint64Ptr() *github_com_gogo_protobuf_test_casttype.MyUint64Type {
+func (this *Castaway) GetMyUint64Ptr() *github_com_maditya_protobuf_test_casttype.MyUint64Type {
 	return this.MyUint64Ptr
 }
 
-func (this *Castaway) GetMyUint64() github_com_gogo_protobuf_test_casttype.MyUint64Type {
+func (this *Castaway) GetMyUint64() github_com_maditya_protobuf_test_casttype.MyUint64Type {
 	return this.MyUint64
 }
 
-func (this *Castaway) GetMyFloat32Ptr() *github_com_gogo_protobuf_test_casttype.MyFloat32Type {
+func (this *Castaway) GetMyFloat32Ptr() *github_com_maditya_protobuf_test_casttype.MyFloat32Type {
 	return this.MyFloat32Ptr
 }
 
-func (this *Castaway) GetMyFloat32() github_com_gogo_protobuf_test_casttype.MyFloat32Type {
+func (this *Castaway) GetMyFloat32() github_com_maditya_protobuf_test_casttype.MyFloat32Type {
 	return this.MyFloat32
 }
 
-func (this *Castaway) GetMyFloat64Ptr() *github_com_gogo_protobuf_test_casttype.MyFloat64Type {
+func (this *Castaway) GetMyFloat64Ptr() *github_com_maditya_protobuf_test_casttype.MyFloat64Type {
 	return this.MyFloat64Ptr
 }
 
-func (this *Castaway) GetMyFloat64() github_com_gogo_protobuf_test_casttype.MyFloat64Type {
+func (this *Castaway) GetMyFloat64() github_com_maditya_protobuf_test_casttype.MyFloat64Type {
 	return this.MyFloat64
 }
 
-func (this *Castaway) GetMyBytes() github_com_gogo_protobuf_test_casttype.Bytes {
+func (this *Castaway) GetMyBytes() github_com_maditya_protobuf_test_casttype.Bytes {
 	return this.MyBytes
 }
 
@@ -742,23 +742,23 @@ func (this *Castaway) GetNormalBytes() []byte {
 	return this.NormalBytes
 }
 
-func (this *Castaway) GetMyUint64S() []github_com_gogo_protobuf_test_casttype.MyUint64Type {
+func (this *Castaway) GetMyUint64S() []github_com_maditya_protobuf_test_casttype.MyUint64Type {
 	return this.MyUint64S
 }
 
-func (this *Castaway) GetMyMap() github_com_gogo_protobuf_test_casttype.MyMapType {
+func (this *Castaway) GetMyMap() github_com_maditya_protobuf_test_casttype.MyMapType {
 	return this.MyMap
 }
 
-func (this *Castaway) GetMyCustomMap() map[github_com_gogo_protobuf_test_casttype.MyStringType]github_com_gogo_protobuf_test_casttype.MyUint64Type {
+func (this *Castaway) GetMyCustomMap() map[github_com_maditya_protobuf_test_casttype.MyStringType]github_com_maditya_protobuf_test_casttype.MyUint64Type {
 	return this.MyCustomMap
 }
 
-func (this *Castaway) GetMyNullableMap() map[github_com_gogo_protobuf_test_casttype.MyInt32Type]*Wilson {
+func (this *Castaway) GetMyNullableMap() map[github_com_maditya_protobuf_test_casttype.MyInt32Type]*Wilson {
 	return this.MyNullableMap
 }
 
-func (this *Castaway) GetMyEmbeddedMap() map[github_com_gogo_protobuf_test_casttype.MyInt32Type]Wilson {
+func (this *Castaway) GetMyEmbeddedMap() map[github_com_maditya_protobuf_test_casttype.MyInt32Type]Wilson {
 	return this.MyEmbeddedMap
 }
 
@@ -783,15 +783,15 @@ func NewCastawayFromFace(that CastawayFace) *Castaway {
 }
 
 type WilsonFace interface {
-	Proto() github_com_gogo_protobuf_proto.Message
+	Proto() github_com_maditya_protobuf_proto.Message
 	GetInt64() *int64
 }
 
-func (this *Wilson) Proto() github_com_gogo_protobuf_proto.Message {
+func (this *Wilson) Proto() github_com_maditya_protobuf_proto.Message {
 	return this
 }
 
-func (this *Wilson) TestProto() github_com_gogo_protobuf_proto.Message {
+func (this *Wilson) TestProto() github_com_maditya_protobuf_proto.Message {
 	return NewWilsonFromFace(this)
 }
 
@@ -816,19 +816,19 @@ func (this *Castaway) GoString() string {
 	}
 	s = append(s, "Int32: "+fmt.Sprintf("%#v", this.Int32)+",\n")
 	if this.MyUint64Ptr != nil {
-		s = append(s, "MyUint64Ptr: "+valueToGoStringCasttype(this.MyUint64Ptr, "github_com_gogo_protobuf_test_casttype.MyUint64Type")+",\n")
+		s = append(s, "MyUint64Ptr: "+valueToGoStringCasttype(this.MyUint64Ptr, "github_com_maditya_protobuf_test_casttype.MyUint64Type")+",\n")
 	}
 	s = append(s, "MyUint64: "+fmt.Sprintf("%#v", this.MyUint64)+",\n")
 	if this.MyFloat32Ptr != nil {
-		s = append(s, "MyFloat32Ptr: "+valueToGoStringCasttype(this.MyFloat32Ptr, "github_com_gogo_protobuf_test_casttype.MyFloat32Type")+",\n")
+		s = append(s, "MyFloat32Ptr: "+valueToGoStringCasttype(this.MyFloat32Ptr, "github_com_maditya_protobuf_test_casttype.MyFloat32Type")+",\n")
 	}
 	s = append(s, "MyFloat32: "+fmt.Sprintf("%#v", this.MyFloat32)+",\n")
 	if this.MyFloat64Ptr != nil {
-		s = append(s, "MyFloat64Ptr: "+valueToGoStringCasttype(this.MyFloat64Ptr, "github_com_gogo_protobuf_test_casttype.MyFloat64Type")+",\n")
+		s = append(s, "MyFloat64Ptr: "+valueToGoStringCasttype(this.MyFloat64Ptr, "github_com_maditya_protobuf_test_casttype.MyFloat64Type")+",\n")
 	}
 	s = append(s, "MyFloat64: "+fmt.Sprintf("%#v", this.MyFloat64)+",\n")
 	if this.MyBytes != nil {
-		s = append(s, "MyBytes: "+valueToGoStringCasttype(this.MyBytes, "github_com_gogo_protobuf_test_casttype.Bytes")+",\n")
+		s = append(s, "MyBytes: "+valueToGoStringCasttype(this.MyBytes, "github_com_maditya_protobuf_test_casttype.Bytes")+",\n")
 	}
 	if this.NormalBytes != nil {
 		s = append(s, "NormalBytes: "+valueToGoStringCasttype(this.NormalBytes, "byte")+",\n")
@@ -840,8 +840,8 @@ func (this *Castaway) GoString() string {
 	for k := range this.MyMap {
 		keysForMyMap = append(keysForMyMap, k)
 	}
-	github_com_gogo_protobuf_sortkeys.Strings(keysForMyMap)
-	mapStringForMyMap := "github_com_gogo_protobuf_test_casttype.MyMapType{"
+	github_com_maditya_protobuf_sortkeys.Strings(keysForMyMap)
+	mapStringForMyMap := "github_com_maditya_protobuf_test_casttype.MyMapType{"
 	for _, k := range keysForMyMap {
 		mapStringForMyMap += fmt.Sprintf("%#v: %#v,", k, this.MyMap[k])
 	}
@@ -853,10 +853,10 @@ func (this *Castaway) GoString() string {
 	for k := range this.MyCustomMap {
 		keysForMyCustomMap = append(keysForMyCustomMap, string(k))
 	}
-	github_com_gogo_protobuf_sortkeys.Strings(keysForMyCustomMap)
-	mapStringForMyCustomMap := "map[github_com_gogo_protobuf_test_casttype.MyStringType]github_com_gogo_protobuf_test_casttype.MyUint64Type{"
+	github_com_maditya_protobuf_sortkeys.Strings(keysForMyCustomMap)
+	mapStringForMyCustomMap := "map[github_com_maditya_protobuf_test_casttype.MyStringType]github_com_maditya_protobuf_test_casttype.MyUint64Type{"
 	for _, k := range keysForMyCustomMap {
-		mapStringForMyCustomMap += fmt.Sprintf("%#v: %#v,", k, this.MyCustomMap[github_com_gogo_protobuf_test_casttype.MyStringType(k)])
+		mapStringForMyCustomMap += fmt.Sprintf("%#v: %#v,", k, this.MyCustomMap[github_com_maditya_protobuf_test_casttype.MyStringType(k)])
 	}
 	mapStringForMyCustomMap += "}"
 	if this.MyCustomMap != nil {
@@ -866,10 +866,10 @@ func (this *Castaway) GoString() string {
 	for k := range this.MyNullableMap {
 		keysForMyNullableMap = append(keysForMyNullableMap, int32(k))
 	}
-	github_com_gogo_protobuf_sortkeys.Int32s(keysForMyNullableMap)
-	mapStringForMyNullableMap := "map[github_com_gogo_protobuf_test_casttype.MyInt32Type]*Wilson{"
+	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyNullableMap)
+	mapStringForMyNullableMap := "map[github_com_maditya_protobuf_test_casttype.MyInt32Type]*Wilson{"
 	for _, k := range keysForMyNullableMap {
-		mapStringForMyNullableMap += fmt.Sprintf("%#v: %#v,", k, this.MyNullableMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(k)])
+		mapStringForMyNullableMap += fmt.Sprintf("%#v: %#v,", k, this.MyNullableMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(k)])
 	}
 	mapStringForMyNullableMap += "}"
 	if this.MyNullableMap != nil {
@@ -879,10 +879,10 @@ func (this *Castaway) GoString() string {
 	for k := range this.MyEmbeddedMap {
 		keysForMyEmbeddedMap = append(keysForMyEmbeddedMap, int32(k))
 	}
-	github_com_gogo_protobuf_sortkeys.Int32s(keysForMyEmbeddedMap)
-	mapStringForMyEmbeddedMap := "map[github_com_gogo_protobuf_test_casttype.MyInt32Type]Wilson{"
+	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyEmbeddedMap)
+	mapStringForMyEmbeddedMap := "map[github_com_maditya_protobuf_test_casttype.MyInt32Type]Wilson{"
 	for _, k := range keysForMyEmbeddedMap {
-		mapStringForMyEmbeddedMap += fmt.Sprintf("%#v: %#v,", k, this.MyEmbeddedMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(k)])
+		mapStringForMyEmbeddedMap += fmt.Sprintf("%#v: %#v,", k, this.MyEmbeddedMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(k)])
 	}
 	mapStringForMyEmbeddedMap += "}"
 	if this.MyEmbeddedMap != nil {
@@ -917,7 +917,7 @@ func valueToGoStringCasttype(v interface{}, typ string) string {
 	pv := reflect.Indirect(rv).Interface()
 	return fmt.Sprintf("func(v %v) *%v { return &v } ( %#v )", typ, typ, pv)
 }
-func extensionToGoStringCasttype(e map[int32]github_com_gogo_protobuf_proto.Extension) string {
+func extensionToGoStringCasttype(e map[int32]github_com_maditya_protobuf_proto.Extension) string {
 	if e == nil {
 		return "nil"
 	}
@@ -948,35 +948,35 @@ func NewPopulatedCastaway(r randyCasttype, easy bool) *Castaway {
 		this.Int32 *= -1
 	}
 	if r.Intn(10) != 0 {
-		v2 := github_com_gogo_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
+		v2 := github_com_maditya_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
 		this.MyUint64Ptr = &v2
 	}
-	this.MyUint64 = github_com_gogo_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
+	this.MyUint64 = github_com_maditya_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
 	if r.Intn(10) != 0 {
-		v3 := github_com_gogo_protobuf_test_casttype.MyFloat32Type(r.Float32())
+		v3 := github_com_maditya_protobuf_test_casttype.MyFloat32Type(r.Float32())
 		if r.Intn(2) == 0 {
 			v3 *= -1
 		}
 		this.MyFloat32Ptr = &v3
 	}
-	this.MyFloat32 = github_com_gogo_protobuf_test_casttype.MyFloat32Type(r.Float32())
+	this.MyFloat32 = github_com_maditya_protobuf_test_casttype.MyFloat32Type(r.Float32())
 	if r.Intn(2) == 0 {
 		this.MyFloat32 *= -1
 	}
 	if r.Intn(10) != 0 {
-		v4 := github_com_gogo_protobuf_test_casttype.MyFloat64Type(r.Float64())
+		v4 := github_com_maditya_protobuf_test_casttype.MyFloat64Type(r.Float64())
 		if r.Intn(2) == 0 {
 			v4 *= -1
 		}
 		this.MyFloat64Ptr = &v4
 	}
-	this.MyFloat64 = github_com_gogo_protobuf_test_casttype.MyFloat64Type(r.Float64())
+	this.MyFloat64 = github_com_maditya_protobuf_test_casttype.MyFloat64Type(r.Float64())
 	if r.Intn(2) == 0 {
 		this.MyFloat64 *= -1
 	}
 	if r.Intn(10) != 0 {
 		v5 := r.Intn(100)
-		this.MyBytes = make(github_com_gogo_protobuf_test_casttype.Bytes, v5)
+		this.MyBytes = make(github_com_maditya_protobuf_test_casttype.Bytes, v5)
 		for i := 0; i < v5; i++ {
 			this.MyBytes[i] = byte(r.Intn(256))
 		}
@@ -990,14 +990,14 @@ func NewPopulatedCastaway(r randyCasttype, easy bool) *Castaway {
 	}
 	if r.Intn(10) != 0 {
 		v7 := r.Intn(10)
-		this.MyUint64S = make([]github_com_gogo_protobuf_test_casttype.MyUint64Type, v7)
+		this.MyUint64S = make([]github_com_maditya_protobuf_test_casttype.MyUint64Type, v7)
 		for i := 0; i < v7; i++ {
-			this.MyUint64S[i] = github_com_gogo_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
+			this.MyUint64S[i] = github_com_maditya_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
 		}
 	}
 	if r.Intn(10) != 0 {
 		v8 := r.Intn(10)
-		this.MyMap = make(github_com_gogo_protobuf_test_casttype.MyMapType)
+		this.MyMap = make(github_com_maditya_protobuf_test_casttype.MyMapType)
 		for i := 0; i < v8; i++ {
 			v9 := randStringCasttype(r)
 			this.MyMap[v9] = uint64(uint64(r.Uint32()))
@@ -1005,24 +1005,24 @@ func NewPopulatedCastaway(r randyCasttype, easy bool) *Castaway {
 	}
 	if r.Intn(10) != 0 {
 		v10 := r.Intn(10)
-		this.MyCustomMap = make(map[github_com_gogo_protobuf_test_casttype.MyStringType]github_com_gogo_protobuf_test_casttype.MyUint64Type)
+		this.MyCustomMap = make(map[github_com_maditya_protobuf_test_casttype.MyStringType]github_com_maditya_protobuf_test_casttype.MyUint64Type)
 		for i := 0; i < v10; i++ {
-			v11 := github_com_gogo_protobuf_test_casttype.MyStringType(randStringCasttype(r))
-			this.MyCustomMap[v11] = github_com_gogo_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
+			v11 := github_com_maditya_protobuf_test_casttype.MyStringType(randStringCasttype(r))
+			this.MyCustomMap[v11] = github_com_maditya_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
 		}
 	}
 	if r.Intn(10) != 0 {
 		v12 := r.Intn(10)
-		this.MyNullableMap = make(map[github_com_gogo_protobuf_test_casttype.MyInt32Type]*Wilson)
+		this.MyNullableMap = make(map[github_com_maditya_protobuf_test_casttype.MyInt32Type]*Wilson)
 		for i := 0; i < v12; i++ {
-			this.MyNullableMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(int32(r.Int31()))] = NewPopulatedWilson(r, easy)
+			this.MyNullableMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(int32(r.Int31()))] = NewPopulatedWilson(r, easy)
 		}
 	}
 	if r.Intn(10) != 0 {
 		v13 := r.Intn(10)
-		this.MyEmbeddedMap = make(map[github_com_gogo_protobuf_test_casttype.MyInt32Type]Wilson)
+		this.MyEmbeddedMap = make(map[github_com_maditya_protobuf_test_casttype.MyInt32Type]Wilson)
 		for i := 0; i < v13; i++ {
-			this.MyEmbeddedMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(int32(r.Int31()))] = *NewPopulatedWilson(r, easy)
+			this.MyEmbeddedMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(int32(r.Int31()))] = *NewPopulatedWilson(r, easy)
 		}
 	}
 	if !easy && r.Intn(10) != 0 {
@@ -1226,8 +1226,8 @@ func (this *Castaway) String() string {
 	for k := range this.MyMap {
 		keysForMyMap = append(keysForMyMap, k)
 	}
-	github_com_gogo_protobuf_sortkeys.Strings(keysForMyMap)
-	mapStringForMyMap := "github_com_gogo_protobuf_test_casttype.MyMapType{"
+	github_com_maditya_protobuf_sortkeys.Strings(keysForMyMap)
+	mapStringForMyMap := "github_com_maditya_protobuf_test_casttype.MyMapType{"
 	for _, k := range keysForMyMap {
 		mapStringForMyMap += fmt.Sprintf("%v: %v,", k, this.MyMap[k])
 	}
@@ -1236,30 +1236,30 @@ func (this *Castaway) String() string {
 	for k := range this.MyCustomMap {
 		keysForMyCustomMap = append(keysForMyCustomMap, string(k))
 	}
-	github_com_gogo_protobuf_sortkeys.Strings(keysForMyCustomMap)
-	mapStringForMyCustomMap := "map[github_com_gogo_protobuf_test_casttype.MyStringType]github_com_gogo_protobuf_test_casttype.MyUint64Type{"
+	github_com_maditya_protobuf_sortkeys.Strings(keysForMyCustomMap)
+	mapStringForMyCustomMap := "map[github_com_maditya_protobuf_test_casttype.MyStringType]github_com_maditya_protobuf_test_casttype.MyUint64Type{"
 	for _, k := range keysForMyCustomMap {
-		mapStringForMyCustomMap += fmt.Sprintf("%v: %v,", k, this.MyCustomMap[github_com_gogo_protobuf_test_casttype.MyStringType(k)])
+		mapStringForMyCustomMap += fmt.Sprintf("%v: %v,", k, this.MyCustomMap[github_com_maditya_protobuf_test_casttype.MyStringType(k)])
 	}
 	mapStringForMyCustomMap += "}"
 	keysForMyNullableMap := make([]int32, 0, len(this.MyNullableMap))
 	for k := range this.MyNullableMap {
 		keysForMyNullableMap = append(keysForMyNullableMap, int32(k))
 	}
-	github_com_gogo_protobuf_sortkeys.Int32s(keysForMyNullableMap)
-	mapStringForMyNullableMap := "map[github_com_gogo_protobuf_test_casttype.MyInt32Type]*Wilson{"
+	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyNullableMap)
+	mapStringForMyNullableMap := "map[github_com_maditya_protobuf_test_casttype.MyInt32Type]*Wilson{"
 	for _, k := range keysForMyNullableMap {
-		mapStringForMyNullableMap += fmt.Sprintf("%v: %v,", k, this.MyNullableMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(k)])
+		mapStringForMyNullableMap += fmt.Sprintf("%v: %v,", k, this.MyNullableMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(k)])
 	}
 	mapStringForMyNullableMap += "}"
 	keysForMyEmbeddedMap := make([]int32, 0, len(this.MyEmbeddedMap))
 	for k := range this.MyEmbeddedMap {
 		keysForMyEmbeddedMap = append(keysForMyEmbeddedMap, int32(k))
 	}
-	github_com_gogo_protobuf_sortkeys.Int32s(keysForMyEmbeddedMap)
-	mapStringForMyEmbeddedMap := "map[github_com_gogo_protobuf_test_casttype.MyInt32Type]Wilson{"
+	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyEmbeddedMap)
+	mapStringForMyEmbeddedMap := "map[github_com_maditya_protobuf_test_casttype.MyInt32Type]Wilson{"
 	for _, k := range keysForMyEmbeddedMap {
-		mapStringForMyEmbeddedMap += fmt.Sprintf("%v: %v,", k, this.MyEmbeddedMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(k)])
+		mapStringForMyEmbeddedMap += fmt.Sprintf("%v: %v,", k, this.MyEmbeddedMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(k)])
 	}
 	mapStringForMyEmbeddedMap += "}"
 	s := strings.Join([]string{`&Castaway{`,
@@ -1576,7 +1576,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field MyUint64Ptr", wireType)
 			}
-			var v github_com_gogo_protobuf_test_casttype.MyUint64Type
+			var v github_com_maditya_protobuf_test_casttype.MyUint64Type
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowCasttypeUnsafe
@@ -1586,7 +1586,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 				}
 				b := data[iNdEx]
 				iNdEx++
-				v |= (github_com_gogo_protobuf_test_casttype.MyUint64Type(b) & 0x7F) << shift
+				v |= (github_com_maditya_protobuf_test_casttype.MyUint64Type(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1606,7 +1606,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 				}
 				b := data[iNdEx]
 				iNdEx++
-				m.MyUint64 |= (github_com_gogo_protobuf_test_casttype.MyUint64Type(b) & 0x7F) << shift
+				m.MyUint64 |= (github_com_maditya_protobuf_test_casttype.MyUint64Type(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1624,7 +1624,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			v |= uint32(data[iNdEx-3]) << 8
 			v |= uint32(data[iNdEx-2]) << 16
 			v |= uint32(data[iNdEx-1]) << 24
-			v2 := github_com_gogo_protobuf_test_casttype.MyFloat32Type(math.Float32frombits(v))
+			v2 := github_com_maditya_protobuf_test_casttype.MyFloat32Type(math.Float32frombits(v))
 			m.MyFloat32Ptr = &v2
 		case 6:
 			if wireType != 5 {
@@ -1639,7 +1639,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			v |= uint32(data[iNdEx-3]) << 8
 			v |= uint32(data[iNdEx-2]) << 16
 			v |= uint32(data[iNdEx-1]) << 24
-			m.MyFloat32 = github_com_gogo_protobuf_test_casttype.MyFloat32Type(math.Float32frombits(v))
+			m.MyFloat32 = github_com_maditya_protobuf_test_casttype.MyFloat32Type(math.Float32frombits(v))
 		case 7:
 			if wireType != 1 {
 				return fmt.Errorf("proto: wrong wireType = %d for field MyFloat64Ptr", wireType)
@@ -1657,7 +1657,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			v |= uint64(data[iNdEx-3]) << 40
 			v |= uint64(data[iNdEx-2]) << 48
 			v |= uint64(data[iNdEx-1]) << 56
-			v2 := github_com_gogo_protobuf_test_casttype.MyFloat64Type(math.Float64frombits(v))
+			v2 := github_com_maditya_protobuf_test_casttype.MyFloat64Type(math.Float64frombits(v))
 			m.MyFloat64Ptr = &v2
 		case 8:
 			if wireType != 1 {
@@ -1676,7 +1676,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			v |= uint64(data[iNdEx-3]) << 40
 			v |= uint64(data[iNdEx-2]) << 48
 			v |= uint64(data[iNdEx-1]) << 56
-			m.MyFloat64 = github_com_gogo_protobuf_test_casttype.MyFloat64Type(math.Float64frombits(v))
+			m.MyFloat64 = github_com_maditya_protobuf_test_casttype.MyFloat64Type(math.Float64frombits(v))
 		case 9:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field MyBytes", wireType)
@@ -1743,7 +1743,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field MyUint64S", wireType)
 			}
-			var v github_com_gogo_protobuf_test_casttype.MyUint64Type
+			var v github_com_maditya_protobuf_test_casttype.MyUint64Type
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowCasttypeUnsafe
@@ -1753,7 +1753,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 				}
 				b := data[iNdEx]
 				iNdEx++
-				v |= (github_com_gogo_protobuf_test_casttype.MyUint64Type(b) & 0x7F) << shift
+				v |= (github_com_maditya_protobuf_test_casttype.MyUint64Type(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1856,7 +1856,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 				}
 			}
 			if m.MyMap == nil {
-				m.MyMap = make(github_com_gogo_protobuf_test_casttype.MyMapType)
+				m.MyMap = make(github_com_maditya_protobuf_test_casttype.MyMapType)
 			}
 			m.MyMap[mapkey] = mapvalue
 			iNdEx = postIndex
@@ -1924,7 +1924,7 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			if postStringIndexmapkey > l {
 				return io.ErrUnexpectedEOF
 			}
-			mapkey := github_com_gogo_protobuf_test_casttype.MyStringType(data[iNdEx:postStringIndexmapkey])
+			mapkey := github_com_maditya_protobuf_test_casttype.MyStringType(data[iNdEx:postStringIndexmapkey])
 			iNdEx = postStringIndexmapkey
 			var valuekey uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1957,9 +1957,9 @@ func (m *Castaway) Unmarshal(data []byte) error {
 				}
 			}
 			if m.MyCustomMap == nil {
-				m.MyCustomMap = make(map[github_com_gogo_protobuf_test_casttype.MyStringType]github_com_gogo_protobuf_test_casttype.MyUint64Type)
+				m.MyCustomMap = make(map[github_com_maditya_protobuf_test_casttype.MyStringType]github_com_maditya_protobuf_test_casttype.MyUint64Type)
 			}
-			m.MyCustomMap[github_com_gogo_protobuf_test_casttype.MyStringType(mapkey)] = ((github_com_gogo_protobuf_test_casttype.MyUint64Type)(mapvalue))
+			m.MyCustomMap[github_com_maditya_protobuf_test_casttype.MyStringType(mapkey)] = ((github_com_maditya_protobuf_test_casttype.MyUint64Type)(mapvalue))
 			iNdEx = postIndex
 		case 14:
 			if wireType != 2 {
@@ -2063,9 +2063,9 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			}
 			iNdEx = postmsgIndex
 			if m.MyNullableMap == nil {
-				m.MyNullableMap = make(map[github_com_gogo_protobuf_test_casttype.MyInt32Type]*Wilson)
+				m.MyNullableMap = make(map[github_com_maditya_protobuf_test_casttype.MyInt32Type]*Wilson)
 			}
-			m.MyNullableMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(mapkey)] = mapvalue
+			m.MyNullableMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(mapkey)] = mapvalue
 			iNdEx = postIndex
 		case 15:
 			if wireType != 2 {
@@ -2169,9 +2169,9 @@ func (m *Castaway) Unmarshal(data []byte) error {
 			}
 			iNdEx = postmsgIndex
 			if m.MyEmbeddedMap == nil {
-				m.MyEmbeddedMap = make(map[github_com_gogo_protobuf_test_casttype.MyInt32Type]Wilson)
+				m.MyEmbeddedMap = make(map[github_com_maditya_protobuf_test_casttype.MyInt32Type]Wilson)
 			}
-			m.MyEmbeddedMap[github_com_gogo_protobuf_test_casttype.MyInt32Type(mapkey)] = *mapvalue
+			m.MyEmbeddedMap[github_com_maditya_protobuf_test_casttype.MyInt32Type(mapkey)] = *mapvalue
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

@@ -16,16 +16,16 @@ It has these top-level messages:
 */
 package one
 
-import proto "github.com/gogo/protobuf/proto"
+import proto "github.com/maditya/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/gogoproto"
+import _ "github.com/maditya/protobuf/gogoproto"
 
-import github_com_gogo_protobuf_test_custom "github.com/gogo/protobuf/test/custom"
-import github_com_gogo_protobuf_test_casttype "github.com/gogo/protobuf/test/casttype"
+import github_com_maditya_protobuf_test_custom "github.com/maditya/protobuf/test/custom"
+import github_com_maditya_protobuf_test_casttype "github.com/maditya/protobuf/test/casttype"
 
-import github_com_gogo_protobuf_protoc_gen_gogo_descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
+import github_com_maditya_protobuf_protoc_gen_gogo_descriptor "github.com/maditya/protobuf/protoc-gen-gogo/descriptor"
+import github_com_maditya_protobuf_proto "github.com/maditya/protobuf/proto"
 import compress_gzip "compress/gzip"
 import bytes "bytes"
 import io_ioutil "io/ioutil"
@@ -824,10 +824,10 @@ type CustomOneof_Stringy struct {
 	Stringy string `protobuf:"bytes,34,opt,name=Stringy,json=stringy,oneof"`
 }
 type CustomOneof_CustomType struct {
-	CustomType github_com_gogo_protobuf_test_custom.Uint128 `protobuf:"bytes,35,opt,name=CustomType,json=customType,oneof,customtype=github.com/gogo/protobuf/test/custom.Uint128"`
+	CustomType github_com_maditya_protobuf_test_custom.Uint128 `protobuf:"bytes,35,opt,name=CustomType,json=customType,oneof,customtype=github.com/maditya/protobuf/test/custom.Uint128"`
 }
 type CustomOneof_CastType struct {
-	CastType github_com_gogo_protobuf_test_casttype.MyUint64Type `protobuf:"varint,36,opt,name=CastType,json=castType,oneof,casttype=github.com/gogo/protobuf/test/casttype.MyUint64Type"`
+	CastType github_com_maditya_protobuf_test_casttype.MyUint64Type `protobuf:"varint,36,opt,name=CastType,json=castType,oneof,casttype=github.com/maditya/protobuf/test/casttype.MyUint64Type"`
 }
 type CustomOneof_MyCustomName struct {
 	MyCustomName int64 `protobuf:"varint,37,opt,name=CustomName,json=customName,oneof"`
@@ -852,7 +852,7 @@ func (m *CustomOneof) GetStringy() string {
 	return ""
 }
 
-func (m *CustomOneof) GetCastType() github_com_gogo_protobuf_test_casttype.MyUint64Type {
+func (m *CustomOneof) GetCastType() github_com_maditya_protobuf_test_casttype.MyUint64Type {
 	if x, ok := m.GetCustom().(*CustomOneof_CastType); ok {
 		return x.CastType
 	}
@@ -921,7 +921,7 @@ func _CustomOneof_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Bu
 		if err != nil {
 			return true, err
 		}
-		var cc github_com_gogo_protobuf_test_custom.Uint128
+		var cc github_com_maditya_protobuf_test_custom.Uint128
 		c := &cc
 		err = c.Unmarshal(x)
 		m.Custom = &CustomOneof_CustomType{*c}
@@ -931,7 +931,7 @@ func _CustomOneof_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Bu
 			return true, proto.ErrInternalBadWireType
 		}
 		x, err := b.DecodeVarint()
-		m.Custom = &CustomOneof_CastType{github_com_gogo_protobuf_test_casttype.MyUint64Type(x)}
+		m.Custom = &CustomOneof_CastType{github_com_maditya_protobuf_test_casttype.MyUint64Type(x)}
 		return true, err
 	case 37: // custom.CustomName
 		if wire != proto.WireVarint {
@@ -976,20 +976,20 @@ func init() {
 	proto.RegisterType((*TwoOneofs)(nil), "one.TwoOneofs")
 	proto.RegisterType((*CustomOneof)(nil), "one.CustomOneof")
 }
-func (this *Subby) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *Subby) Description() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
 	return OneDescription()
 }
-func (this *AllTypesOneOf) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *AllTypesOneOf) Description() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
 	return OneDescription()
 }
-func (this *TwoOneofs) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *TwoOneofs) Description() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
 	return OneDescription()
 }
-func (this *CustomOneof) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *CustomOneof) Description() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
 	return OneDescription()
 }
-func OneDescription() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
-	d := &github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet{}
+func OneDescription() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+	d := &github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet{}
 	var gzipped = []byte{
 		// 3728 bytes of a gzipped FileDescriptorSet
 		0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xcc, 0x5a, 0x5b, 0x6c, 0x1b, 0xe7,
@@ -1235,7 +1235,7 @@ func OneDescription() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor
 	if err != nil {
 		panic(err)
 	}
-	if err := github_com_gogo_protobuf_proto.Unmarshal(ungzipped, d); err != nil {
+	if err := github_com_maditya_protobuf_proto.Unmarshal(ungzipped, d); err != nil {
 		panic(err)
 	}
 	return d
@@ -3409,7 +3409,7 @@ func valueToGoStringOne(v interface{}, typ string) string {
 	pv := reflect.Indirect(rv).Interface()
 	return fmt.Sprintf("func(v %v) *%v { return &v } ( %#v )", typ, typ, pv)
 }
-func extensionToGoStringOne(e map[int32]github_com_gogo_protobuf_proto.Extension) string {
+func extensionToGoStringOne(e map[int32]github_com_maditya_protobuf_proto.Extension) string {
 	if e == nil {
 		return "nil"
 	}
@@ -3684,13 +3684,13 @@ func NewPopulatedCustomOneof_Stringy(r randyOne, easy bool) *CustomOneof_Stringy
 }
 func NewPopulatedCustomOneof_CustomType(r randyOne, easy bool) *CustomOneof_CustomType {
 	this := &CustomOneof_CustomType{}
-	v4 := github_com_gogo_protobuf_test_custom.NewPopulatedUint128(r)
+	v4 := github_com_maditya_protobuf_test_custom.NewPopulatedUint128(r)
 	this.CustomType = *v4
 	return this
 }
 func NewPopulatedCustomOneof_CastType(r randyOne, easy bool) *CustomOneof_CastType {
 	this := &CustomOneof_CastType{}
-	this.CastType = github_com_gogo_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
+	this.CastType = github_com_maditya_protobuf_test_casttype.MyUint64Type(uint64(r.Uint32()))
 	return this
 }
 func NewPopulatedCustomOneof_MyCustomName(r randyOne, easy bool) *CustomOneof_MyCustomName {

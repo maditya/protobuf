@@ -1,5 +1,5 @@
 // Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
-// http://github.com/gogo/protobuf
+// http://github.com/maditya/protobuf
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -35,11 +35,11 @@ It is enabled by the following extensions:
 
 Let us look at:
 
-  github.com/gogo/protobuf/test/example/example.proto
+  github.com/maditya/protobuf/test/example/example.proto
 
 Btw all the output can be seen at:
 
-  github.com/gogo/protobuf/test/example/*
+  github.com/maditya/protobuf/test/example/*
 
 The following message:
 
@@ -47,7 +47,7 @@ The following message:
 
   message B {
 	optional A A = 1 [(gogoproto.nullable) = false, (gogoproto.embed) = true];
-	repeated bytes G = 2 [(gogoproto.customtype) = "github.com/gogo/protobuf/test/custom.Uint128", (gogoproto.nullable) = false];
+	repeated bytes G = 2 [(gogoproto.customtype) = "github.com/maditya/protobuf/test/custom.Uint128", (gogoproto.nullable) = false];
   }
 
 given to the populate plugin, will generate code the following code:
@@ -58,9 +58,9 @@ given to the populate plugin, will generate code the following code:
 	this.A = *v2
 	if r.Intn(10) != 0 {
 		v3 := r.Intn(10)
-		this.G = make([]github_com_gogo_protobuf_test_custom.Uint128, v3)
+		this.G = make([]github_com_maditya_protobuf_test_custom.Uint128, v3)
 		for i := 0; i < v3; i++ {
-			v4 := github_com_gogo_protobuf_test_custom.NewPopulatedUint128(r)
+			v4 := github_com_maditya_protobuf_test_custom.NewPopulatedUint128(r)
 			this.G[i] = *v4
 		}
 	}
@@ -83,11 +83,11 @@ package populate
 
 import (
 	"fmt"
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/proto"
-	descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
-	"github.com/gogo/protobuf/vanity"
+	"github.com/maditya/protobuf/gogoproto"
+	"github.com/maditya/protobuf/proto"
+	descriptor "github.com/maditya/protobuf/protoc-gen-gogo/descriptor"
+	"github.com/maditya/protobuf/protoc-gen-gogo/generator"
+	"github.com/maditya/protobuf/vanity"
 	"math"
 	"strconv"
 	"strings"
@@ -484,7 +484,7 @@ func (p *plugin) Generate(file *generator.FileDescriptor) {
 	proto3 := gogoproto.IsProto3(file.FileDescriptorProto)
 
 	p.localName = generator.FileName(file)
-	protoPkg := p.NewImport("github.com/gogo/protobuf/proto")
+	protoPkg := p.NewImport("github.com/maditya/protobuf/proto")
 	if !gogoproto.ImportsGoGoProto(file.FileDescriptorProto) {
 		protoPkg = p.NewImport("github.com/golang/protobuf/proto")
 	}

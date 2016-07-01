@@ -1,8 +1,8 @@
 package required
 
 import (
-	"github.com/gogo/protobuf/proto"
-	"github.com/gogo/protobuf/test"
+	"github.com/maditya/protobuf/proto"
+	"github.com/maditya/protobuf/test"
 	"math/rand"
 	"reflect"
 	"strconv"

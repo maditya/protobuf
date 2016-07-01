@@ -19,16 +19,16 @@
 */
 package test
 
-import proto "github.com/gogo/protobuf/proto"
+import proto "github.com/maditya/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/gogoproto"
+import _ "github.com/maditya/protobuf/gogoproto"
 
-import github_com_gogo_protobuf_test "github.com/gogo/protobuf/test"
-import github_com_gogo_protobuf_test_custom "github.com/gogo/protobuf/test/custom"
+import github_com_maditya_protobuf_test "github.com/maditya/protobuf/test"
+import github_com_maditya_protobuf_test_custom "github.com/maditya/protobuf/test/custom"
 
-import github_com_gogo_protobuf_protoc_gen_gogo_descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
+import github_com_maditya_protobuf_protoc_gen_gogo_descriptor "github.com/maditya/protobuf/protoc-gen-gogo/descriptor"
+import github_com_maditya_protobuf_proto "github.com/maditya/protobuf/proto"
 import compress_gzip "compress/gzip"
 import bytes "bytes"
 import io_ioutil "io/ioutil"
@@ -52,7 +52,7 @@ const _ = proto.GoGoProtoPackageIsVersion1
 type A struct {
 	Description      string                             `protobuf:"bytes,1,opt,name=Description,json=description" json:"Description"`
 	Number           int64                              `protobuf:"varint,2,opt,name=Number,json=number" json:"Number"`
-	Id               github_com_gogo_protobuf_test.Uuid `protobuf:"bytes,3,opt,name=Id,json=id,customtype=github.com/gogo/protobuf/test.Uuid" json:"Id"`
+	Id               github_com_maditya_protobuf_test.Uuid `protobuf:"bytes,3,opt,name=Id,json=id,customtype=github.com/maditya/protobuf/test.Uuid" json:"Id"`
 	XXX_unrecognized []byte                             `json:"-"`
 }
 
@@ -62,7 +62,7 @@ func (*A) Descriptor() ([]byte, []int) { return fileDescriptorExample, []int{0} 
 
 type B struct {
 	A                `protobuf:"bytes,1,opt,name=A,json=a,embedded=A" json:"A"`
-	G                []github_com_gogo_protobuf_test_custom.Uint128 `protobuf:"bytes,2,rep,name=G,json=g,customtype=github.com/gogo/protobuf/test/custom.Uint128" json:"G"`
+	G                []github_com_maditya_protobuf_test_custom.Uint128 `protobuf:"bytes,2,rep,name=G,json=g,customtype=github.com/maditya/protobuf/test/custom.Uint128" json:"G"`
 	XXX_unrecognized []byte                                         `json:"-"`
 }
 
@@ -173,11 +173,11 @@ func init() {
 	proto.RegisterType((*R)(nil), "test.R")
 	proto.RegisterType((*CastType)(nil), "test.CastType")
 }
-func (this *B) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *B) Description() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
 	return ExampleDescription()
 }
-func ExampleDescription() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
-	d := &github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet{}
+func ExampleDescription() (desc *github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+	d := &github_com_maditya_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet{}
 	var gzipped = []byte{
 		// 3537 bytes of a gzipped FileDescriptorSet
 		0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xcc, 0x5a, 0x69, 0x6c, 0x1b, 0xd7,
@@ -412,7 +412,7 @@ func ExampleDescription() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descri
 	if err != nil {
 		panic(err)
 	}
-	if err := github_com_gogo_protobuf_proto.Unmarshal(ungzipped, d); err != nil {
+	if err := github_com_maditya_protobuf_proto.Unmarshal(ungzipped, d); err != nil {
 		panic(err)
 	}
 	return d
@@ -945,17 +945,17 @@ func (this *CastType) Equal(that interface{}) bool {
 }
 
 type AFace interface {
-	Proto() github_com_gogo_protobuf_proto.Message
+	Proto() github_com_maditya_protobuf_proto.Message
 	GetDescription() string
 	GetNumber() int64
-	GetId() github_com_gogo_protobuf_test.Uuid
+	GetId() github_com_maditya_protobuf_test.Uuid
 }
 
-func (this *A) Proto() github_com_gogo_protobuf_proto.Message {
+func (this *A) Proto() github_com_maditya_protobuf_proto.Message {
 	return this
 }
 
-func (this *A) TestProto() github_com_gogo_protobuf_proto.Message {
+func (this *A) TestProto() github_com_maditya_protobuf_proto.Message {
 	return NewAFromFace(this)
 }
 
@@ -967,7 +967,7 @@ func (this *A) GetNumber() int64 {
 	return this.Number
 }
 
-func (this *A) GetId() github_com_gogo_protobuf_test.Uuid {
+func (this *A) GetId() github_com_maditya_protobuf_test.Uuid {
 	return this.Id
 }
 
@@ -1093,7 +1093,7 @@ func valueToGoStringExample(v interface{}, typ string) string {
 	pv := reflect.Indirect(rv).Interface()
 	return fmt.Sprintf("func(v %v) *%v { return &v } ( %#v )", typ, typ, pv)
 }
-func extensionToGoStringExample(e map[int32]github_com_gogo_protobuf_proto.Extension) string {
+func extensionToGoStringExample(e map[int32]github_com_maditya_protobuf_proto.Extension) string {
 	if e == nil {
 		return "nil"
 	}
@@ -1361,7 +1361,7 @@ func NewPopulatedA(r randyExample, easy bool) *A {
 	if r.Intn(2) == 0 {
 		this.Number *= -1
 	}
-	v1 := github_com_gogo_protobuf_test.NewPopulatedUuid(r)
+	v1 := github_com_maditya_protobuf_test.NewPopulatedUuid(r)
 	this.Id = *v1
 	if !easy && r.Intn(10) != 0 {
 		this.XXX_unrecognized = randUnrecognizedExample(r, 4)
@@ -1375,9 +1375,9 @@ func NewPopulatedB(r randyExample, easy bool) *B {
 	this.A = *v2
 	if r.Intn(10) != 0 {
 		v3 := r.Intn(10)
-		this.G = make([]github_com_gogo_protobuf_test_custom.Uint128, v3)
+		this.G = make([]github_com_maditya_protobuf_test_custom.Uint128, v3)
 		for i := 0; i < v3; i++ {
-			v4 := github_com_gogo_protobuf_test_custom.NewPopulatedUint128(r)
+			v4 := github_com_maditya_protobuf_test_custom.NewPopulatedUint128(r)
 			this.G[i] = *v4
 		}
 	}
@@ -1425,7 +1425,7 @@ func NewPopulatedE(r randyExample, easy bool) *E {
 				wire = 5
 			}
 			data := randFieldExample(nil, r, fieldNumber, wire)
-			github_com_gogo_protobuf_proto.SetRawExtension(this, int32(fieldNumber), data)
+			github_com_maditya_protobuf_proto.SetRawExtension(this, int32(fieldNumber), data)
 		}
 	}
 	return this
@@ -1958,7 +1958,7 @@ func (m *B) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			var v github_com_gogo_protobuf_test_custom.Uint128
+			var v github_com_maditya_protobuf_test_custom.Uint128
 			m.G = append(m.G, v)
 			if err := m.G[len(m.G)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
 				return err
@@ -2224,7 +2224,7 @@ func (m *E) Unmarshal(data []byte) error {
 				if (iNdEx + skippy) > l {
 					return io.ErrUnexpectedEOF
 				}
-				github_com_gogo_protobuf_proto.AppendExtension(m, int32(fieldNum), data[iNdEx:iNdEx+skippy])
+				github_com_maditya_protobuf_proto.AppendExtension(m, int32(fieldNum), data[iNdEx:iNdEx+skippy])
 				iNdEx += skippy
 			} else {
 				iNdEx = preIndex

@@ -1,5 +1,5 @@
 // Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
-// http://github.com/gogo/protobuf
+// http://github.com/maditya/protobuf
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -48,11 +48,11 @@ The face plugin also generates a test given it is enabled using one of the follo
 
 Let us look at:
 
-  github.com/gogo/protobuf/test/example/example.proto
+  github.com/maditya/protobuf/test/example/example.proto
 
 Btw all the output can be seen at:
 
-  github.com/gogo/protobuf/test/example/*
+  github.com/maditya/protobuf/test/example/*
 
 The following message:
 
@@ -61,23 +61,23 @@ The following message:
 	option (gogoproto.goproto_getters) = false;
 	optional string Description = 1 [(gogoproto.nullable) = false];
 	optional int64 Number = 2 [(gogoproto.nullable) = false];
-	optional bytes Id = 3 [(gogoproto.customtype) = "github.com/gogo/protobuf/test/custom.Uuid", (gogoproto.nullable) = false];
+	optional bytes Id = 3 [(gogoproto.customtype) = "github.com/maditya/protobuf/test/custom.Uuid", (gogoproto.nullable) = false];
   }
 
 given to the face plugin, will generate the following code:
 
 	type AFace interface {
-		Proto() github_com_gogo_protobuf_proto.Message
+		Proto() github_com_maditya_protobuf_proto.Message
 		GetDescription() string
 		GetNumber() int64
-		GetId() github_com_gogo_protobuf_test_custom.Uuid
+		GetId() github_com_maditya_protobuf_test_custom.Uuid
 	}
 
-	func (this *A) Proto() github_com_gogo_protobuf_proto.Message {
+	func (this *A) Proto() github_com_maditya_protobuf_proto.Message {
 		return this
 	}
 
-	func (this *A) TestProto() github_com_gogo_protobuf_proto.Message {
+	func (this *A) TestProto() github_com_maditya_protobuf_proto.Message {
 		return NewAFromFace(this)
 	}
 
@@ -89,7 +89,7 @@ given to the face plugin, will generate the following code:
 		return this.Number
 	}
 
-	func (this *A) GetId() github_com_gogo_protobuf_test_custom.Uuid {
+	func (this *A) GetId() github_com_maditya_protobuf_test_custom.Uuid {
 		return this.Id
 	}
 
@@ -129,8 +129,8 @@ just the like TestProto method which is used to test the NewAFromFace function.
 package face
 
 import (
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
+	"github.com/maditya/protobuf/gogoproto"
+	"github.com/maditya/protobuf/protoc-gen-gogo/generator"
 )
 
 type plugin struct {
@@ -152,7 +152,7 @@ func (p *plugin) Init(g *generator.Generator) {
 
 func (p *plugin) Generate(file *generator.FileDescriptor) {
 	p.PluginImports = generator.NewPluginImports(p.Generator)
-	protoPkg := p.NewImport("github.com/gogo/protobuf/proto")
+	protoPkg := p.NewImport("github.com/maditya/protobuf/proto")
 	if !gogoproto.ImportsGoGoProto(file.FileDescriptorProto) {
 		protoPkg = p.NewImport("github.com/golang/protobuf/proto")
 	}

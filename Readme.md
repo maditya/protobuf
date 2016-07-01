@@ -1,12 +1,12 @@
 # Protocol Buffers for Go with Gadgets
 
-Travis CI Matrix Builds: [![Build Status](https://travis-ci.org/gogo/protobuf.svg?branch=master)](https://travis-ci.org/gogo/protobuf)
+Travis CI Matrix Builds: [![Build Status](https://travis-ci.org/maditya/protobuf.svg?branch=master)](https://travis-ci.org/maditya/protobuf)
 
 ### Getting Started (Give me the speed I don't care about the rest)
 
 Install the protoc-gen-gofast binary
 
-    go get github.com/gogo/protobuf/protoc-gen-gofast
+    go get github.com/maditya/protobuf/protoc-gen-gofast
 
 Use it to generate faster marshaling and unmarshaling go code for your protocol buffers.
 
@@ -33,9 +33,9 @@ Most versions from 2.3.1 should not give any problems, but 2.5.0, 2.6.1 and 3 al
 
 Finally run:
 
-    go get github.com/gogo/protobuf/proto
-    go get github.com/gogo/protobuf/protoc-gen-gogo
-    go get github.com/gogo/protobuf/gogoproto
+    go get github.com/maditya/protobuf/proto
+    go get github.com/maditya/protobuf/protoc-gen-gogo
+    go get github.com/maditya/protobuf/gogoproto
 
 ### Proto3
 

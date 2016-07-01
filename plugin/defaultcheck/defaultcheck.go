@@ -1,5 +1,5 @@
 // Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
-// http://github.com/gogo/protobuf
+// http://github.com/maditya/protobuf
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -44,15 +44,15 @@ It is enabled by the following extensions:
 
 For incorrect usage of nullable with tests see:
 
-  github.com/gogo/protobuf/test/nullableconflict
+  github.com/maditya/protobuf/test/nullableconflict
 
 */
 package defaultcheck
 
 import (
 	"fmt"
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
+	"github.com/maditya/protobuf/gogoproto"
+	"github.com/maditya/protobuf/protoc-gen-gogo/generator"
 	"os"
 )
 
