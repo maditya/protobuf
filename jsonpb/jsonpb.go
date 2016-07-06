@@ -425,7 +425,7 @@ func Unmarshal(r io.Reader, pb proto.Message) error {
 	if err := json.NewDecoder(r).Decode(&inputValue); err != nil {
 		return err
 	}
-	return unmarshalValue(reflect.ValueOf(pb).Elem(), inputValue)
+	return unmarshalValue(reflect.ValueOf(pb).Elem(), inputValue, nil)
 }
 
 // UnmarshalString will populate the fields of a protocol buffer based
@@ -436,7 +436,8 @@ func UnmarshalString(str string, pb proto.Message) error {
 }
 
 // unmarshalValue converts/copies a value into the target.
-func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
+// prop may be nil
+func unmarshalValue(target reflect.Value, inputValue json.RawMessage, prop *proto.Properties) error {
 	// Prefer specialized marshalers if available
 	if ulr, ok := target.Addr().Interface().(json.Unmarshaler); ok {
 		return ulr.UnmarshalJSON(inputValue)
@@ -447,7 +448,30 @@ func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
 	// Allocate memory for pointer fields.
 	if targetType.Kind() == reflect.Ptr {
 		target.Set(reflect.New(targetType.Elem()))
-		return unmarshalValue(target.Elem(), inputValue)
+		return unmarshalValue(target.Elem(), inputValue, prop)
+	}
+
+	// Handle enums, which have an underlying type of int32,
+	// and may appear as strings. We do this while handling
+	// the struct so we have access to the enum info.
+	// The case of an enum appearing as a number is handled
+	// by the recursive call to unmarshalValue.
+	if inputValue[0] == '"' && prop != nil && prop.Enum != "" {
+		//vmap := proto.EnumValueMap(enum)
+		vmap := proto.EnumValueMap(prop.Enum)
+		// Don't need to do unquoting; valid enum names
+		// are from a limited character set.
+		s := inputValue[1 : len(inputValue)-1]
+		n, ok := vmap[string(s)]
+		if !ok {
+			return fmt.Errorf("unknown value %q for enum %s", s, prop.Enum)
+		}
+		if target.Kind() == reflect.Ptr { // proto2
+			target.Set(reflect.New(targetType.Elem()))
+			target = target.Elem()
+		}
+		target.SetInt(int64(n))
+		return nil
 	}
 
 	// Handle nested messages.
@@ -471,30 +495,7 @@ func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
 			}
 			delete(jsonFields, fieldName)
 
-			// Handle enums, which have an underlying type of int32,
-			// and may appear as strings. We do this while handling
-			// the struct so we have access to the enum info.
-			// The case of an enum appearing as a number is handled
-			// by the recursive call to unmarshalValue.
-			if enum := sprops.Prop[i].Enum; valueForField[0] == '"' && enum != "" {
-				vmap := proto.EnumValueMap(enum)
-				// Don't need to do unquoting; valid enum names
-				// are from a limited character set.
-				s := valueForField[1 : len(valueForField)-1]
-				n, ok := vmap[string(s)]
-				if !ok {
-					return fmt.Errorf("unknown value %q for enum %s", s, enum)
-				}
-				f := target.Field(i)
-				if f.Kind() == reflect.Ptr { // proto2
-					f.Set(reflect.New(f.Type().Elem()))
-					f = f.Elem()
-				}
-				f.SetInt(int64(n))
-				continue
-			}
-
-			if err := unmarshalValue(target.Field(i), valueForField); err != nil {
+			if err := unmarshalValue(target.Field(i), valueForField, sprops.Prop[i]); err != nil {
 				return err
 			}
 		}
@@ -503,7 +504,7 @@ func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
 			if oop, ok := sprops.OneofTypes[fname]; ok {
 				nv := reflect.New(oop.Type.Elem())
 				target.Field(oop.Field).Set(nv)
-				if err := unmarshalValue(nv.Elem().Field(0), raw); err != nil {
+				if err := unmarshalValue(nv.Elem().Field(0), raw, oop.Prop); err != nil {
 					return err
 				}
 				delete(jsonFields, fname)
@@ -543,7 +544,7 @@ func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
 		len := len(slc)
 		target.Set(reflect.MakeSlice(targetType, len, len))
 		for i := 0; i < len; i++ {
-			if err := unmarshalValue(target.Index(i), slc[i]); err != nil {
+			if err := unmarshalValue(target.Index(i), slc[i], prop); err != nil {
 				return err
 			}
 		}
@@ -557,6 +558,13 @@ func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
 			return err
 		}
 		target.Set(reflect.MakeMap(targetType))
+		var keyprop, valprop *proto.Properties
+		if prop != nil {
+			// These could still be nil if the protobuf metadata is broken somehow.
+			// TODO: This won't work because the fields are unexported.
+			// We should probably just reparse them.
+			//keyprop, valprop = prop.mkeyprop, prop.mvalprop
+		}
 		for ks, raw := range mp {
 			// Unmarshal map key. The core json library already decoded the key into a
 			// string, so we handle that specially. Other types were quoted post-serialization.
@@ -565,7 +573,7 @@ func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
 				k = reflect.ValueOf(ks)
 			} else {
 				k = reflect.New(targetType.Key()).Elem()
-				if err := unmarshalValue(k, json.RawMessage(ks)); err != nil {
+				if err := unmarshalValue(k, json.RawMessage(ks), keyprop); err != nil {
 					return err
 				}
 			}
@@ -576,7 +584,7 @@ func unmarshalValue(target reflect.Value, inputValue json.RawMessage) error {
 
 			// Unmarshal map value.
 			v := reflect.New(targetType.Elem()).Elem()
-			if err := unmarshalValue(v, raw); err != nil {
+			if err := unmarshalValue(v, raw, valprop); err != nil {
 				return err
 			}
 			target.SetMapIndex(k, v)
