@@ -1504,6 +1504,8 @@ func encodeVarintCasttype(data []byte, offset int, v uint64) int {
 	return offset + 1
 }
 
+func init() { proto.RegisterFile("combos/unsafemarshaler/casttype.proto", fileDescriptorCasttype) }
+
 var fileDescriptorCasttype = []byte{
 	// 681 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xa4, 0x95, 0xcd, 0x4f, 0xd4, 0x4e,
