@@ -375,12 +375,12 @@ var unmarshalingTests = []struct {
 		Unmarshaler{},
 		"{\n  \"color\": 1000,\n  \"r_color\": [\n    \"RED\"\n  ]\n}",
 		&pb.Widget{Color: pb.Widget_Color(1000).Enum(), RColor: []pb.Widget_Color{pb.Widget_RED}}},
-	{"repeated proto3 enum", Unmarshaler{}, `{"rFunny":["PUNS","SLAPSTICK"]}`,
+	{"repeated proto3 enum", Unmarshaler{}, `{"r_funny":["PUNS","SLAPSTICK"]}`,
 		&proto3pb.Message{RFunny: []proto3pb.Message_Humour{
 			proto3pb.Message_PUNS,
 			proto3pb.Message_SLAPSTICK,
 		}}},
-	{"repeated proto3 enum as int", Unmarshaler{}, `{"rFunny":[1,2]}`,
+	{"repeated proto3 enum as int", Unmarshaler{}, `{"r_funny":[1,2]}`,
 		&proto3pb.Message{RFunny: []proto3pb.Message_Humour{
 			proto3pb.Message_PUNS,
 			proto3pb.Message_SLAPSTICK,
