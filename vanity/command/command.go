@@ -36,7 +36,7 @@ import (
 	"github.com/maditya/protobuf/protoc-gen-gogo/generator"
 	plugin "github.com/maditya/protobuf/protoc-gen-gogo/plugin"
 
-	_ "github.com/maditya/protobuf/plugin/grpc"
+	_ "github.com/maditya/protobuf/protoc-gen-gogo/grpc"
 
 	_ "github.com/maditya/protobuf/plugin/compare"
 	_ "github.com/maditya/protobuf/plugin/defaultcheck"
