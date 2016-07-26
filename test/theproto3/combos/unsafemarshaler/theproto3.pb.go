@@ -42,7 +42,6 @@ import reflect "reflect"
 import github_com_maditya_protobuf_sortkeys "github.com/maditya/protobuf/sortkeys"
 
 import unsafe "unsafe"
-import errors "errors"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -3701,8 +3700,9 @@ func (m *Message) Size() (n int) {
 			l = 0
 			if v != nil {
 				l = v.Size()
+				l += 1 + sovTheproto3(uint64(l))
 			}
-			mapEntrySize := 1 + sovTheproto3(uint64(k)) + 1 + l + sovTheproto3(uint64(l))
+			mapEntrySize := 1 + sovTheproto3(uint64(k)) + l
 			n += mapEntrySize + 1 + sovTheproto3(uint64(mapEntrySize))
 		}
 	}
@@ -3717,8 +3717,9 @@ func (m *Message) Size() (n int) {
 			l = 0
 			if v != nil {
 				l = v.Size()
+				l += 1 + sovTheproto3(uint64(l))
 			}
-			mapEntrySize := 1 + sovTheproto3(uint64(k)) + 1 + l + sovTheproto3(uint64(l))
+			mapEntrySize := 1 + sovTheproto3(uint64(k)) + l
 			n += mapEntrySize + 1 + sovTheproto3(uint64(mapEntrySize))
 		}
 	}
@@ -3873,8 +3874,9 @@ func (m *AllMaps) Size() (n int) {
 			l = 0
 			if v != nil {
 				l = v.Size()
+				l += 1 + sovTheproto3(uint64(l))
 			}
-			mapEntrySize := 1 + len(k) + sovTheproto3(uint64(len(k))) + 1 + l + sovTheproto3(uint64(l))
+			mapEntrySize := 1 + len(k) + sovTheproto3(uint64(len(k))) + l
 			n += mapEntrySize + 2 + sovTheproto3(uint64(mapEntrySize))
 		}
 	}
@@ -4019,8 +4021,9 @@ func (m *AllMapsOrdered) Size() (n int) {
 			l = 0
 			if v != nil {
 				l = v.Size()
+				l += 1 + sovTheproto3(uint64(l))
 			}
-			mapEntrySize := 1 + len(k) + sovTheproto3(uint64(len(k))) + 1 + l + sovTheproto3(uint64(l))
+			mapEntrySize := 1 + len(k) + sovTheproto3(uint64(len(k))) + l
 			n += mapEntrySize + 2 + sovTheproto3(uint64(mapEntrySize))
 		}
 	}
@@ -4045,8 +4048,9 @@ func (m *MessageWithMap) Size() (n int) {
 			l = 0
 			if v != nil {
 				l = v.Size()
+				l += 1 + sovTheproto3(uint64(l))
 			}
-			mapEntrySize := 1 + sozTheproto3(uint64(k)) + 1 + l + sovTheproto3(uint64(l))
+			mapEntrySize := 1 + sozTheproto3(uint64(k)) + l
 			n += mapEntrySize + 1 + sovTheproto3(uint64(mapEntrySize))
 		}
 	}
@@ -4738,23 +4742,26 @@ func (m *Message) MarshalTo(data []byte) (int, error) {
 			data[i] = 0x52
 			i++
 			v := m.Terrain[k]
-			if v == nil {
-				return 0, errors.New("proto: map has nil element")
+			msgSize := 0
+			if v != nil {
+				msgSize = v.Size()
+				msgSize += 1 + sovTheproto3(uint64(msgSize))
 			}
-			msgSize := v.Size()
-			mapSize := 1 + sovTheproto3(uint64(k)) + 1 + msgSize + sovTheproto3(uint64(msgSize))
+			mapSize := 1 + sovTheproto3(uint64(k)) + msgSize
 			i = encodeVarintTheproto3(data, i, uint64(mapSize))
 			data[i] = 0x8
 			i++
 			i = encodeVarintTheproto3(data, i, uint64(k))
-			data[i] = 0x12
-			i++
-			i = encodeVarintTheproto3(data, i, uint64(v.Size()))
-			n2, err := v.MarshalTo(data[i:])
-			if err != nil {
-				return 0, err
+			if v != nil {
+				data[i] = 0x12
+				i++
+				i = encodeVarintTheproto3(data, i, uint64(v.Size()))
+				n2, err := v.MarshalTo(data[i:])
+				if err != nil {
+					return 0, err
+				}
+				i += n2
 			}
-			i += n2
 		}
 	}
 	if m.Proto2Field != nil {
@@ -4772,23 +4779,26 @@ func (m *Message) MarshalTo(data []byte) (int, error) {
 			data[i] = 0x6a
 			i++
 			v := m.Proto2Value[k]
-			if v == nil {
-				return 0, errors.New("proto: map has nil element")
+			msgSize := 0
+			if v != nil {
+				msgSize = v.Size()
+				msgSize += 1 + sovTheproto3(uint64(msgSize))
 			}
-			msgSize := v.Size()
-			mapSize := 1 + sovTheproto3(uint64(k)) + 1 + msgSize + sovTheproto3(uint64(msgSize))
+			mapSize := 1 + sovTheproto3(uint64(k)) + msgSize
 			i = encodeVarintTheproto3(data, i, uint64(mapSize))
 			data[i] = 0x8
 			i++
 			i = encodeVarintTheproto3(data, i, uint64(k))
-			data[i] = 0x12
-			i++
-			i = encodeVarintTheproto3(data, i, uint64(v.Size()))
-			n4, err := v.MarshalTo(data[i:])
-			if err != nil {
-				return 0, err
+			if v != nil {
+				data[i] = 0x12
+				i++
+				i = encodeVarintTheproto3(data, i, uint64(v.Size()))
+				n4, err := v.MarshalTo(data[i:])
+				if err != nil {
+					return 0, err
+				}
+				i += n4
 			}
-			i += n4
 		}
 	}
 	return i, nil
@@ -5099,24 +5109,27 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 			data[i] = 0x1
 			i++
 			v := m.StringToMsgMap[k]
-			if v == nil {
-				return 0, errors.New("proto: map has nil element")
+			msgSize := 0
+			if v != nil {
+				msgSize = v.Size()
+				msgSize += 1 + sovTheproto3(uint64(msgSize))
 			}
-			msgSize := v.Size()
-			mapSize := 1 + len(k) + sovTheproto3(uint64(len(k))) + 1 + msgSize + sovTheproto3(uint64(msgSize))
+			mapSize := 1 + len(k) + sovTheproto3(uint64(len(k))) + msgSize
 			i = encodeVarintTheproto3(data, i, uint64(mapSize))
 			data[i] = 0xa
 			i++
 			i = encodeVarintTheproto3(data, i, uint64(len(k)))
 			i += copy(data[i:], k)
-			data[i] = 0x12
-			i++
-			i = encodeVarintTheproto3(data, i, uint64(v.Size()))
-			n5, err := v.MarshalTo(data[i:])
-			if err != nil {
-				return 0, err
+			if v != nil {
+				data[i] = 0x12
+				i++
+				i = encodeVarintTheproto3(data, i, uint64(v.Size()))
+				n5, err := v.MarshalTo(data[i:])
+				if err != nil {
+					return 0, err
+				}
+				i += n5
 			}
-			i += n5
 		}
 	}
 	return i, nil
@@ -5488,24 +5501,27 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 			data[i] = 0x1
 			i++
 			v := m.StringToMsgMap[string(k)]
-			if v == nil {
-				return 0, errors.New("proto: map has nil element")
+			msgSize := 0
+			if v != nil {
+				msgSize = v.Size()
+				msgSize += 1 + sovTheproto3(uint64(msgSize))
 			}
-			msgSize := v.Size()
-			mapSize := 1 + len(k) + sovTheproto3(uint64(len(k))) + 1 + msgSize + sovTheproto3(uint64(msgSize))
+			mapSize := 1 + len(k) + sovTheproto3(uint64(len(k))) + msgSize
 			i = encodeVarintTheproto3(data, i, uint64(mapSize))
 			data[i] = 0xa
 			i++
 			i = encodeVarintTheproto3(data, i, uint64(len(k)))
 			i += copy(data[i:], k)
-			data[i] = 0x12
-			i++
-			i = encodeVarintTheproto3(data, i, uint64(v.Size()))
-			n6, err := v.MarshalTo(data[i:])
-			if err != nil {
-				return 0, err
+			if v != nil {
+				data[i] = 0x12
+				i++
+				i = encodeVarintTheproto3(data, i, uint64(v.Size()))
+				n6, err := v.MarshalTo(data[i:])
+				if err != nil {
+					return 0, err
+				}
+				i += n6
 			}
-			i += n6
 		}
 	}
 	return i, nil
@@ -5547,23 +5563,26 @@ func (m *MessageWithMap) MarshalTo(data []byte) (int, error) {
 			data[i] = 0x12
 			i++
 			v := m.MsgMapping[k]
-			if v == nil {
-				return 0, errors.New("proto: map has nil element")
+			msgSize := 0
+			if v != nil {
+				msgSize = v.Size()
+				msgSize += 1 + sovTheproto3(uint64(msgSize))
 			}
-			msgSize := v.Size()
-			mapSize := 1 + sozTheproto3(uint64(k)) + 1 + msgSize + sovTheproto3(uint64(msgSize))
+			mapSize := 1 + sozTheproto3(uint64(k)) + msgSize
 			i = encodeVarintTheproto3(data, i, uint64(mapSize))
 			data[i] = 0x8
 			i++
 			i = encodeVarintTheproto3(data, i, uint64((uint64(k)<<1)^uint64((k>>63))))
-			data[i] = 0x12
-			i++
-			i = encodeVarintTheproto3(data, i, uint64(v.Size()))
-			n7, err := v.MarshalTo(data[i:])
-			if err != nil {
-				return 0, err
+			if v != nil {
+				data[i] = 0x12
+				i++
+				i = encodeVarintTheproto3(data, i, uint64(v.Size()))
+				n7, err := v.MarshalTo(data[i:])
+				if err != nil {
+					return 0, err
+				}
+				i += n7
 			}
-			i += n7
 		}
 	}
 	if len(m.ByteMapping) > 0 {
