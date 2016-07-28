@@ -1,4 +1,6 @@
-// Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
+// Protocol Buffers for Go with Gadgets
+//
+// Copyright (c) 2013, The GoGo Authors. All rights reserved.
 // http://github.com/maditya/protobuf
 //
 // Redistribution and use in source and binary forms, with or without
@@ -136,7 +138,7 @@ given to the unmarshal plugin, will generate the following code:
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.G = append(m.G, github_com_maditya_protobuf_test_custom.Uint128{})
+			m.G = append(m.G, github_com_gogo_protobuf_test_custom.Uint128{})
 			if err := m.G[len(m.G)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
 				return err
 			}

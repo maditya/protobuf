@@ -1,4 +1,6 @@
-// Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
+// Protocol Buffers for Go with Gadgets
+//
+// Copyright (c) 2013, The GoGo Authors. All rights reserved.
 // http://github.com/maditya/protobuf
 //
 // Redistribution and use in source and binary forms, with or without
@@ -67,17 +69,17 @@ The following message:
 given to the face plugin, will generate the following code:
 
 	type AFace interface {
-		Proto() github_com_maditya_protobuf_proto.Message
+		Proto() github_com_gogo_protobuf_proto.Message
 		GetDescription() string
 		GetNumber() int64
-		GetId() github_com_maditya_protobuf_test_custom.Uuid
+		GetId() github_com_gogo_protobuf_test_custom.Uuid
 	}
 
-	func (this *A) Proto() github_com_maditya_protobuf_proto.Message {
+	func (this *A) Proto() github_com_gogo_protobuf_proto.Message {
 		return this
 	}
 
-	func (this *A) TestProto() github_com_maditya_protobuf_proto.Message {
+	func (this *A) TestProto() github_com_gogo_protobuf_proto.Message {
 		return NewAFromFace(this)
 	}
 
@@ -89,7 +91,7 @@ given to the face plugin, will generate the following code:
 		return this.Number
 	}
 
-	func (this *A) GetId() github_com_maditya_protobuf_test_custom.Uuid {
+	func (this *A) GetId() github_com_gogo_protobuf_test_custom.Uuid {
 		return this.Id
 	}
 

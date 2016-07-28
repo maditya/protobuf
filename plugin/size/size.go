@@ -1,4 +1,6 @@
-// Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
+// Protocol Buffers for Go with Gadgets
+//
+// Copyright (c) 2013, The GoGo Authors. All rights reserved.
 // http://github.com/maditya/protobuf
 //
 // Redistribution and use in source and binary forms, with or without
@@ -88,7 +90,7 @@ and the following test code:
 	func TestBSize(t *testing5.T) {
 		popr := math_rand5.New(math_rand5.NewSource(time5.Now().UnixNano()))
 		p := NewPopulatedB(popr, true)
-		data, err := github_com_maditya_protobuf_proto2.Marshal(p)
+		data, err := github_com_gogo_protobuf_proto2.Marshal(p)
 		if err != nil {
 			panic(err)
 		}
