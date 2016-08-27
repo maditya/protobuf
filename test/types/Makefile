@@ -1,7 +1,7 @@
 # Protocol Buffers for Go with Gadgets
 #
 # Copyright (c) 2016, The GoGo Authors. All rights reserved.
-# http://github.com/maditya/protobuf
+# http://github.com/gogo/protobuf
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -27,12 +27,5 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 regenerate:
-	go install github.com/maditya/protobuf/protoc-gen-gogotypes
-	go install github.com/maditya/protobuf/protoc-min-version
-
-	protoc-min-version --version="3.0.0" --gogotypes_out=. -I=../protobuf/google/protobuf ../protobuf/google/protobuf/any.proto
-	protoc-min-version --version="3.0.0" --gogotypes_out=. -I=../protobuf/google/protobuf ../protobuf/google/protobuf/timestamp.proto
-	protoc-min-version --version="3.0.0" --gogotypes_out=. -I=../protobuf/google/protobuf ../protobuf/google/protobuf/duration.proto
-	protoc-min-version --version="3.0.0" --gogotypes_out=. -I=../protobuf/google/protobuf ../protobuf/google/protobuf/struct.proto
-	protoc-min-version --version="3.0.0" --gogotypes_out=. -I=../protobuf/google/protobuf ../protobuf/google/protobuf/wrappers.proto
-
+	go install github.com/gogo/protobuf/protoc-gen-combo
+	protoc --gogo_out=Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types:. --proto_path=../../../../../:../../protobuf/:. types.proto
