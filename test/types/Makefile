@@ -29,4 +29,10 @@
 regenerate:
 	go install github.com/maditya/protobuf/protoc-gen-combo
 	go install github.com/maditya/protobuf/protoc-gen-gogo
-	protoc-gen-combo --version="3.0.0" --gogo_out=Mgoogle/protobuf/timestamp.proto=github.com/maditya/protobuf/types:. --proto_path=../../../../../:../../protobuf/:. types.proto
+	protoc-gen-combo --version="3.0.0" --gogo_out=\
+	Mgoogle/protobuf/any.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/duration.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/struct.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/timestamp.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/wrappers.proto=github.com/maditya/protobuf/types:. \
+	--proto_path=../../../../../:../../protobuf/:. types.proto
