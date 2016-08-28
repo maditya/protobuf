@@ -20,7 +20,7 @@ import math "math"
 import bytes "bytes"
 
 import strings "strings"
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
+import github_com_maditya_protobuf_proto "github.com/maditya/protobuf/proto"
 import sort "sort"
 import strconv "strconv"
 import reflect "reflect"
@@ -195,8 +195,8 @@ func valueToGoStringAny(v interface{}, typ string) string {
 	pv := reflect.Indirect(rv).Interface()
 	return fmt.Sprintf("func(v %v) *%v { return &v } ( %#v )", typ, typ, pv)
 }
-func extensionToGoStringAny(m github_com_gogo_protobuf_proto.Message) string {
-	e := github_com_gogo_protobuf_proto.GetUnsafeExtensionsMap(m)
+func extensionToGoStringAny(m github_com_maditya_protobuf_proto.Message) string {
+	e := github_com_maditya_protobuf_proto.GetUnsafeExtensionsMap(m)
 	if e == nil {
 		return "nil"
 	}
