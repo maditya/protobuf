@@ -42,6 +42,7 @@ import (
 	pb "github.com/maditya/protobuf/jsonpb/jsonpb_test_proto"
 	"github.com/maditya/protobuf/proto"
 	proto3pb "github.com/maditya/protobuf/proto/proto3_proto"
+	"github.com/maditya/protobuf/types"
 )
 
 var (
@@ -341,6 +342,9 @@ var marshalingTests = []struct {
 	{"force orig_name", Marshaler{OrigName: true}, &pb.Simple{OInt32: proto.Int32(4)},
 		`{"o_int32":4}`},
 	{"proto2 extension", marshaler, realNumber, realNumberJSON},
+
+	{"Duration", marshaler, &pb.KnownTypes{Dur: &types.Duration{Seconds: 3}}, `{"dur":"3.000s"}`},
+	{"Timestamp", marshaler, &pb.KnownTypes{Ts: &types.Timestamp{Seconds: 14e8, Nanos: 21e6}}, `{"ts":"2014-05-13T16:53:20.021Z"}`},
 }
 
 func TestMarshaling(t *testing.T) {
@@ -375,12 +379,12 @@ var unmarshalingTests = []struct {
 		Unmarshaler{},
 		"{\n  \"color\": 1000,\n  \"r_color\": [\n    \"RED\"\n  ]\n}",
 		&pb.Widget{Color: pb.Widget_Color(1000).Enum(), RColor: []pb.Widget_Color{pb.Widget_RED}}},
-	{"repeated proto3 enum", Unmarshaler{}, `{"r_funny":["PUNS","SLAPSTICK"]}`,
+	{"repeated proto3 enum", Unmarshaler{}, `{"rFunny":["PUNS","SLAPSTICK"]}`,
 		&proto3pb.Message{RFunny: []proto3pb.Message_Humour{
 			proto3pb.Message_PUNS,
 			proto3pb.Message_SLAPSTICK,
 		}}},
-	{"repeated proto3 enum as int", Unmarshaler{}, `{"r_funny":[1,2]}`,
+	{"repeated proto3 enum as int", Unmarshaler{}, `{"rFunny":[1,2]}`,
 		&proto3pb.Message{RFunny: []proto3pb.Message_Humour{
 			proto3pb.Message_PUNS,
 			proto3pb.Message_SLAPSTICK,
@@ -403,6 +407,8 @@ var unmarshalingTests = []struct {
 	{"oneof orig_name", Unmarshaler{}, `{"Country":"Australia"}`, &pb.MsgWithOneof{Union: &pb.MsgWithOneof_Country{Country: "Australia"}}},
 	{"orig_name input", Unmarshaler{}, `{"o_bool":true}`, &pb.Simple{OBool: proto.Bool(true)}},
 	{"camelName input", Unmarshaler{}, `{"oBool":true}`, &pb.Simple{OBool: proto.Bool(true)}},
+	{"Duration", Unmarshaler{}, `{"dur":"3.000s"}`, &pb.KnownTypes{Dur: &types.Duration{Seconds: 3}}},
+	{"Timestamp", Unmarshaler{}, `{"ts":"2014-05-13T16:53:20.021Z"}`, &pb.KnownTypes{Ts: &types.Timestamp{Seconds: 14e8, Nanos: 21e6}}},
 }
 
 func TestUnmarshaling(t *testing.T) {
