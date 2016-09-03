@@ -10,6 +10,7 @@
 
 	It has these top-level messages:
 		KnownTypes
+		StandardLibrary
 */
 package types
 
@@ -20,6 +21,10 @@ import _ "github.com/maditya/protobuf/gogoproto"
 import google_protobuf1 "github.com/maditya/protobuf/types"
 import google_protobuf2 "github.com/maditya/protobuf/types"
 import google_protobuf3 "github.com/maditya/protobuf/types"
+
+import time "time"
+
+import github_com_gogo_protobuf_types "github.com/maditya/protobuf/types"
 
 import io "io"
 
@@ -35,9 +40,7 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type KnownTypes struct {
-	// google.protobuf.Any an = 14;
-	Dur *google_protobuf1.Duration `protobuf:"bytes,1,opt,name=dur" json:"dur,omitempty"`
-	// google.protobuf.Struct st = 12;
+	Dur   *google_protobuf1.Duration    `protobuf:"bytes,1,opt,name=dur" json:"dur,omitempty"`
 	Ts    *google_protobuf2.Timestamp   `protobuf:"bytes,2,opt,name=ts" json:"ts,omitempty"`
 	Dbl   *google_protobuf3.DoubleValue `protobuf:"bytes,3,opt,name=dbl" json:"dbl,omitempty"`
 	Flt   *google_protobuf3.FloatValue  `protobuf:"bytes,4,opt,name=flt" json:"flt,omitempty"`
@@ -132,8 +135,113 @@ func (m *KnownTypes) GetBytes() *google_protobuf3.BytesValue {
 	return nil
 }
 
+type StandardLibrary struct {
+	NullableTimestamp    *google_protobuf2.Timestamp   `protobuf:"bytes,1,opt,name=nullableTimestamp" json:"nullableTimestamp,omitempty"`
+	NullableDuration     *google_protobuf1.Duration    `protobuf:"bytes,2,opt,name=nullableDuration" json:"nullableDuration,omitempty"`
+	NullableStdTime      *time.Time                    `protobuf:"bytes,3,opt,name=nullableStdTime" json:"nullableStdTime,omitempty"`
+	NullableStdDuration  *time.Duration                `protobuf:"bytes,4,opt,name=nullableStdDuration" json:"nullableStdDuration,omitempty"`
+	StdTime              time.Time                     `protobuf:"bytes,5,opt,name=stdTime" json:"stdTime"`
+	StdDuration          time.Duration                 `protobuf:"bytes,6,opt,name=stdDuration" json:"stdDuration"`
+	NullableTimestamps   []*google_protobuf2.Timestamp `protobuf:"bytes,11,rep,name=nullableTimestamps" json:"nullableTimestamps,omitempty"`
+	NullableDurations    []*google_protobuf1.Duration  `protobuf:"bytes,12,rep,name=nullableDurations" json:"nullableDurations,omitempty"`
+	NullableStdTimes     []*time.Time                  `protobuf:"bytes,13,rep,name=nullableStdTimes" json:"nullableStdTimes,omitempty"`
+	NullableStdDurations []*time.Duration              `protobuf:"bytes,14,rep,name=nullableStdDurations" json:"nullableStdDurations,omitempty"`
+	StdTimes             []time.Time                   `protobuf:"bytes,15,rep,name=stdTimes" json:"stdTimes"`
+	StdDurations         []time.Duration               `protobuf:"bytes,16,rep,name=stdDurations" json:"stdDurations"`
+}
+
+func (m *StandardLibrary) Reset()                    { *m = StandardLibrary{} }
+func (m *StandardLibrary) String() string            { return proto.CompactTextString(m) }
+func (*StandardLibrary) ProtoMessage()               {}
+func (*StandardLibrary) Descriptor() ([]byte, []int) { return fileDescriptorTypes, []int{1} }
+
+func (m *StandardLibrary) GetNullableTimestamp() *google_protobuf2.Timestamp {
+	if m != nil {
+		return m.NullableTimestamp
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetNullableDuration() *google_protobuf1.Duration {
+	if m != nil {
+		return m.NullableDuration
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetNullableStdTime() *time.Time {
+	if m != nil {
+		return m.NullableStdTime
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetNullableStdDuration() *time.Duration {
+	if m != nil {
+		return m.NullableStdDuration
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetStdTime() time.Time {
+	if m != nil {
+		return m.StdTime
+	}
+	return time.Time{}
+}
+
+func (m *StandardLibrary) GetStdDuration() time.Duration {
+	if m != nil {
+		return m.StdDuration
+	}
+	return 0
+}
+
+func (m *StandardLibrary) GetNullableTimestamps() []*google_protobuf2.Timestamp {
+	if m != nil {
+		return m.NullableTimestamps
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetNullableDurations() []*google_protobuf1.Duration {
+	if m != nil {
+		return m.NullableDurations
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetNullableStdTimes() []*time.Time {
+	if m != nil {
+		return m.NullableStdTimes
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetNullableStdDurations() []*time.Duration {
+	if m != nil {
+		return m.NullableStdDurations
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetStdTimes() []time.Time {
+	if m != nil {
+		return m.StdTimes
+	}
+	return nil
+}
+
+func (m *StandardLibrary) GetStdDurations() []time.Duration {
+	if m != nil {
+		return m.StdDurations
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*KnownTypes)(nil), "types.KnownTypes")
+	proto.RegisterType((*StandardLibrary)(nil), "types.StandardLibrary")
 }
 func (this *KnownTypes) Equal(that interface{}) bool {
 	if that == nil {
@@ -195,6 +303,109 @@ func (this *KnownTypes) Equal(that interface{}) bool {
 	}
 	return true
 }
+func (this *StandardLibrary) Equal(that interface{}) bool {
+	if that == nil {
+		if this == nil {
+			return true
+		}
+		return false
+	}
+
+	that1, ok := that.(*StandardLibrary)
+	if !ok {
+		that2, ok := that.(StandardLibrary)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		if this == nil {
+			return true
+		}
+		return false
+	} else if this == nil {
+		return false
+	}
+	if !this.NullableTimestamp.Equal(that1.NullableTimestamp) {
+		return false
+	}
+	if !this.NullableDuration.Equal(that1.NullableDuration) {
+		return false
+	}
+	if that1.NullableStdTime == nil {
+		if this.NullableStdTime != nil {
+			return false
+		}
+	} else if !this.NullableStdTime.Equal(*that1.NullableStdTime) {
+		return false
+	}
+	if this.NullableStdDuration != nil && that1.NullableStdDuration != nil {
+		if *this.NullableStdDuration != *that1.NullableStdDuration {
+			return false
+		}
+	} else if this.NullableStdDuration != nil {
+		return false
+	} else if that1.NullableStdDuration != nil {
+		return false
+	}
+	if !this.StdTime.Equal(that1.StdTime) {
+		return false
+	}
+	if this.StdDuration != that1.StdDuration {
+		return false
+	}
+	if len(this.NullableTimestamps) != len(that1.NullableTimestamps) {
+		return false
+	}
+	for i := range this.NullableTimestamps {
+		if !this.NullableTimestamps[i].Equal(that1.NullableTimestamps[i]) {
+			return false
+		}
+	}
+	if len(this.NullableDurations) != len(that1.NullableDurations) {
+		return false
+	}
+	for i := range this.NullableDurations {
+		if !this.NullableDurations[i].Equal(that1.NullableDurations[i]) {
+			return false
+		}
+	}
+	if len(this.NullableStdTimes) != len(that1.NullableStdTimes) {
+		return false
+	}
+	for i := range this.NullableStdTimes {
+		if !this.NullableStdTimes[i].Equal(*that1.NullableStdTimes[i]) {
+			return false
+		}
+	}
+	if len(this.NullableStdDurations) != len(that1.NullableStdDurations) {
+		return false
+	}
+	for i := range this.NullableStdDurations {
+		if this.NullableStdDurations[i] != that1.NullableStdDurations[i] {
+			return false
+		}
+	}
+	if len(this.StdTimes) != len(that1.StdTimes) {
+		return false
+	}
+	for i := range this.StdTimes {
+		if !this.StdTimes[i].Equal(that1.StdTimes[i]) {
+			return false
+		}
+	}
+	if len(this.StdDurations) != len(that1.StdDurations) {
+		return false
+	}
+	for i := range this.StdDurations {
+		if this.StdDurations[i] != that1.StdDurations[i] {
+			return false
+		}
+	}
+	return true
+}
 func NewPopulatedKnownTypes(r randyTypes, easy bool) *KnownTypes {
 	this := &KnownTypes{}
 	if r.Intn(10) != 0 {
@@ -235,6 +446,73 @@ func NewPopulatedKnownTypes(r randyTypes, easy bool) *KnownTypes {
 	return this
 }
 
+func NewPopulatedStandardLibrary(r randyTypes, easy bool) *StandardLibrary {
+	this := &StandardLibrary{}
+	if r.Intn(10) != 0 {
+		this.NullableTimestamp = google_protobuf2.NewPopulatedTimestamp(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.NullableDuration = google_protobuf1.NewPopulatedDuration(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.NullableStdTime = github_com_gogo_protobuf_types.NewPopulatedStdTime(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.NullableStdDuration = github_com_gogo_protobuf_types.NewPopulatedStdDuration(r, easy)
+	}
+	v1 := github_com_gogo_protobuf_types.NewPopulatedStdTime(r, easy)
+	this.StdTime = *v1
+	v2 := github_com_gogo_protobuf_types.NewPopulatedStdDuration(r, easy)
+	this.StdDuration = *v2
+	if r.Intn(10) != 0 {
+		v3 := r.Intn(5)
+		this.NullableTimestamps = make([]*google_protobuf2.Timestamp, v3)
+		for i := 0; i < v3; i++ {
+			this.NullableTimestamps[i] = google_protobuf2.NewPopulatedTimestamp(r, easy)
+		}
+	}
+	if r.Intn(10) != 0 {
+		v4 := r.Intn(5)
+		this.NullableDurations = make([]*google_protobuf1.Duration, v4)
+		for i := 0; i < v4; i++ {
+			this.NullableDurations[i] = google_protobuf1.NewPopulatedDuration(r, easy)
+		}
+	}
+	if r.Intn(10) != 0 {
+		v5 := r.Intn(5)
+		this.NullableStdTimes = make([]*time.Time, v5)
+		for i := 0; i < v5; i++ {
+			this.NullableStdTimes[i] = github_com_gogo_protobuf_types.NewPopulatedStdTime(r, easy)
+		}
+	}
+	if r.Intn(10) != 0 {
+		v6 := r.Intn(5)
+		this.NullableStdDurations = make([]*time.Duration, v6)
+		for i := 0; i < v6; i++ {
+			this.NullableStdDurations[i] = github_com_gogo_protobuf_types.NewPopulatedStdDuration(r, easy)
+		}
+	}
+	if r.Intn(10) != 0 {
+		v7 := r.Intn(5)
+		this.StdTimes = make([]time.Time, v7)
+		for i := 0; i < v7; i++ {
+			v8 := github_com_gogo_protobuf_types.NewPopulatedStdTime(r, easy)
+			this.StdTimes[i] = *v8
+		}
+	}
+	if r.Intn(10) != 0 {
+		v9 := r.Intn(5)
+		this.StdDurations = make([]time.Duration, v9)
+		for i := 0; i < v9; i++ {
+			v10 := github_com_gogo_protobuf_types.NewPopulatedStdDuration(r, easy)
+			this.StdDurations[i] = *v10
+		}
+	}
+	if !easy && r.Intn(10) != 0 {
+	}
+	return this
+}
+
 type randyTypes interface {
 	Float32() float32
 	Float64() float64
@@ -254,9 +532,9 @@ func randUTF8RuneTypes(r randyTypes) rune {
 	return rune(ru + 61)
 }
 func randStringTypes(r randyTypes) string {
-	v1 := r.Intn(100)
-	tmps := make([]rune, v1)
-	for i := 0; i < v1; i++ {
+	v11 := r.Intn(100)
+	tmps := make([]rune, v11)
+	for i := 0; i < v11; i++ {
 		tmps[i] = randUTF8RuneTypes(r)
 	}
 	return string(tmps)
@@ -278,11 +556,11 @@ func randFieldTypes(data []byte, r randyTypes, fieldNumber int, wire int) []byte
 	switch wire {
 	case 0:
 		data = encodeVarintPopulateTypes(data, uint64(key))
-		v2 := r.Int63()
+		v12 := r.Int63()
 		if r.Intn(2) == 0 {
-			v2 *= -1
+			v12 *= -1
 		}
-		data = encodeVarintPopulateTypes(data, uint64(v2))
+		data = encodeVarintPopulateTypes(data, uint64(v12))
 	case 1:
 		data = encodeVarintPopulateTypes(data, uint64(key))
 		data = append(data, byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)))
@@ -353,6 +631,68 @@ func (m *KnownTypes) Size() (n int) {
 	if m.Bytes != nil {
 		l = m.Bytes.Size()
 		n += 1 + l + sovTypes(uint64(l))
+	}
+	return n
+}
+
+func (m *StandardLibrary) Size() (n int) {
+	var l int
+	_ = l
+	if m.NullableTimestamp != nil {
+		l = m.NullableTimestamp.Size()
+		n += 1 + l + sovTypes(uint64(l))
+	}
+	if m.NullableDuration != nil {
+		l = m.NullableDuration.Size()
+		n += 1 + l + sovTypes(uint64(l))
+	}
+	if m.NullableStdTime != nil {
+		l = github_com_gogo_protobuf_types.SizeOfStdTime(*m.NullableStdTime)
+		n += 1 + l + sovTypes(uint64(l))
+	}
+	if m.NullableStdDuration != nil {
+		l = github_com_gogo_protobuf_types.SizeOfStdDuration(*m.NullableStdDuration)
+		n += 1 + l + sovTypes(uint64(l))
+	}
+	l = github_com_gogo_protobuf_types.SizeOfStdTime(m.StdTime)
+	n += 1 + l + sovTypes(uint64(l))
+	l = github_com_gogo_protobuf_types.SizeOfStdDuration(m.StdDuration)
+	n += 1 + l + sovTypes(uint64(l))
+	if len(m.NullableTimestamps) > 0 {
+		for _, e := range m.NullableTimestamps {
+			l = e.Size()
+			n += 1 + l + sovTypes(uint64(l))
+		}
+	}
+	if len(m.NullableDurations) > 0 {
+		for _, e := range m.NullableDurations {
+			l = e.Size()
+			n += 1 + l + sovTypes(uint64(l))
+		}
+	}
+	if len(m.NullableStdTimes) > 0 {
+		for _, e := range m.NullableStdTimes {
+			l = github_com_gogo_protobuf_types.SizeOfStdTime(*e)
+			n += 1 + l + sovTypes(uint64(l))
+		}
+	}
+	if len(m.NullableStdDurations) > 0 {
+		for _, e := range m.NullableStdDurations {
+			l = github_com_gogo_protobuf_types.SizeOfStdDuration(*e)
+			n += 1 + l + sovTypes(uint64(l))
+		}
+	}
+	if len(m.StdTimes) > 0 {
+		for _, e := range m.StdTimes {
+			l = github_com_gogo_protobuf_types.SizeOfStdTime(e)
+			n += 1 + l + sovTypes(uint64(l))
+		}
+	}
+	if len(m.StdDurations) > 0 {
+		for _, e := range m.StdDurations {
+			l = github_com_gogo_protobuf_types.SizeOfStdDuration(e)
+			n += 2 + l + sovTypes(uint64(l))
+		}
 	}
 	return n
 }
@@ -783,6 +1123,434 @@ func (m *KnownTypes) Unmarshal(data []byte) error {
 	}
 	return nil
 }
+func (m *StandardLibrary) Unmarshal(data []byte) error {
+	l := len(data)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTypes
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := data[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StandardLibrary: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StandardLibrary: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableTimestamp", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.NullableTimestamp == nil {
+				m.NullableTimestamp = &google_protobuf2.Timestamp{}
+			}
+			if err := m.NullableTimestamp.Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableDuration", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.NullableDuration == nil {
+				m.NullableDuration = &google_protobuf1.Duration{}
+			}
+			if err := m.NullableDuration.Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableStdTime", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.NullableStdTime == nil {
+				m.NullableStdTime = &google_protobuf2.Timestamp{}
+			}
+			if err := m.NullableStdTime.Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableStdDuration", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.NullableStdDuration == nil {
+				m.NullableStdDuration = &google_protobuf1.Duration{}
+			}
+			if err := m.NullableStdDuration.Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field StdTime", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.StdTime.Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field StdDuration", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.StdDuration.Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 11:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableTimestamps", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.NullableTimestamps = append(m.NullableTimestamps, &google_protobuf2.Timestamp{})
+			if err := m.NullableTimestamps[len(m.NullableTimestamps)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 12:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableDurations", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.NullableDurations = append(m.NullableDurations, &google_protobuf1.Duration{})
+			if err := m.NullableDurations[len(m.NullableDurations)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 13:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableStdTimes", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.NullableStdTimes = append(m.NullableStdTimes, &google_protobuf2.Timestamp{})
+			if err := m.NullableStdTimes[len(m.NullableStdTimes)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 14:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NullableStdDurations", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.NullableStdDurations = append(m.NullableStdDurations, &google_protobuf1.Duration{})
+			if err := m.NullableStdDurations[len(m.NullableStdDurations)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 15:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field StdTimes", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.StdTimes = append(m.StdTimes, google_protobuf2.Timestamp{})
+			if err := m.StdTimes[len(m.StdTimes)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 16:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field StdDurations", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTypes
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := data[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTypes
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.StdDurations = append(m.StdDurations, google_protobuf1.Duration{})
+			if err := m.StdDurations[len(m.StdDurations)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTypes(data[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthTypes
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
 func skipTypes(data []byte) (n int, err error) {
 	l := len(data)
 	iNdEx := 0
@@ -891,30 +1659,43 @@ var (
 func init() { proto.RegisterFile("combos/unmarshaler/types.proto", fileDescriptorTypes) }
 
 var fileDescriptorTypes = []byte{
-	// 392 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x7c, 0xd0, 0x31, 0xae, 0xd3, 0x30,
-	0x18, 0xc0, 0xf1, 0xba, 0x69, 0x1f, 0xe0, 0xb7, 0x65, 0x32, 0x05, 0x19, 0x84, 0x18, 0x10, 0x88,
-	0x04, 0x92, 0x28, 0x07, 0xa8, 0x10, 0x12, 0x62, 0x2b, 0x0f, 0x76, 0xfb, 0xc5, 0x4d, 0x23, 0x39,
-	0xf9, 0x22, 0xfb, 0xb3, 0xaa, 0x6e, 0x5c, 0x82, 0x3b, 0x70, 0x04, 0x46, 0x46, 0x46, 0x8e, 0x00,
-	0xe1, 0x12, 0x1d, 0x51, 0x9c, 0x14, 0x10, 0x55, 0xde, 0x16, 0xcb, 0xbf, 0xef, 0x9f, 0x2f, 0xa1,
-	0xfc, 0x1a, 0x6a, 0x09, 0x36, 0x76, 0x4d, 0x2d, 0x8c, 0xdd, 0x09, 0xad, 0x4c, 0x8c, 0x87, 0x56,
-	0xd9, 0xa8, 0x35, 0x80, 0x10, 0x2e, 0xfd, 0x61, 0xf5, 0xa2, 0xac, 0x70, 0xe7, 0x64, 0x74, 0x0d,
-	0x75, 0x5c, 0x8b, 0xa2, 0xc2, 0x83, 0x88, 0x3d, 0x90, 0x6e, 0x1b, 0x97, 0x50, 0x82, 0x3f, 0xf8,
-	0xa7, 0x61, 0x70, 0xc5, 0x4b, 0x80, 0x52, 0xab, 0xbf, 0xaa, 0x70, 0x46, 0x60, 0x05, 0xcd, 0x78,
-	0xff, 0xe0, 0xff, 0x7b, 0xac, 0x6a, 0x65, 0x51, 0xd4, 0xed, 0x54, 0x60, 0x6f, 0x44, 0xdb, 0x2a,
-	0x33, 0x6e, 0xf6, 0xe8, 0xd3, 0x82, 0xd2, 0xb7, 0x0d, 0xec, 0x9b, 0xab, 0x7e, 0xc3, 0xf0, 0x19,
-	0x0d, 0x0a, 0x67, 0x18, 0x79, 0x48, 0x9e, 0x5c, 0x26, 0x77, 0xa3, 0x61, 0x38, 0x3a, 0x0d, 0x47,
-	0xaf, 0xc6, 0xb7, 0x6f, 0x7a, 0x15, 0x3e, 0xa5, 0x73, 0xb4, 0x6c, 0xee, 0xed, 0xea, 0xcc, 0x5e,
-	0x9d, 0x36, 0xd9, 0xcc, 0xd1, 0x86, 0x11, 0x0d, 0x0a, 0xa9, 0x59, 0xe0, 0xf1, 0xfd, 0xf3, 0x30,
-	0x38, 0xa9, 0xd5, 0x07, 0xa1, 0x9d, 0xda, 0xf4, 0x30, 0x7c, 0x4e, 0x83, 0xad, 0x46, 0xb6, 0xf0,
-	0xfe, 0xde, 0x99, 0x7f, 0xad, 0x41, 0xe0, 0xc8, 0xb7, 0x1a, 0x7b, 0x5e, 0xe5, 0x19, 0x5b, 0x4e,
-	0xf0, 0x37, 0x0d, 0xe6, 0xd9, 0xc8, 0xab, 0x3c, 0xeb, 0xb7, 0x71, 0x79, 0xc6, 0x2e, 0x26, 0xb6,
-	0x79, 0xff, 0xaf, 0x77, 0x79, 0xe6, 0xf3, 0x69, 0xc2, 0x6e, 0x4d, 0xe7, 0xd3, 0xe4, 0x94, 0x4f,
-	0x13, 0x9f, 0x4f, 0x13, 0x76, 0xfb, 0x86, 0xfc, 0x1f, 0xef, 0xbc, 0x5f, 0x48, 0x00, 0xcd, 0xee,
-	0x4c, 0xfc, 0xca, 0x35, 0x80, 0x1e, 0xb8, 0x77, 0x7d, 0xdf, 0xa2, 0x61, 0x74, 0xa2, 0xff, 0x0e,
-	0x4d, 0xd5, 0x94, 0x63, 0xdf, 0xa2, 0x09, 0x5f, 0xd2, 0xa5, 0x3c, 0xa0, 0xb2, 0xec, 0x72, 0xe2,
-	0x03, 0xd6, 0xfd, 0xed, 0x30, 0x30, 0xc8, 0xf5, 0xe3, 0xe3, 0x4f, 0x4e, 0x3e, 0x77, 0x9c, 0x7c,
-	0xe9, 0x38, 0xf9, 0xda, 0x71, 0xf2, 0xad, 0xe3, 0xb3, 0xef, 0x1d, 0x27, 0x3f, 0x3a, 0x4e, 0x8e,
-	0x1d, 0x9f, 0x7d, 0xfc, 0xc5, 0x67, 0xf2, 0xc2, 0x17, 0xd2, 0xdf, 0x01, 0x00, 0x00, 0xff, 0xff,
-	0xbd, 0xed, 0x3f, 0x0e, 0x00, 0x03, 0x00, 0x00,
+	// 604 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x84, 0x92, 0xcb, 0x6e, 0xd3, 0x4c,
+	0x00, 0x85, 0xe3, 0xc6, 0xb9, 0xfc, 0x93, 0xfe, 0xa4, 0x0c, 0x2c, 0x86, 0x80, 0x26, 0xa8, 0x62,
+	0x81, 0x40, 0x75, 0x44, 0x12, 0x65, 0x89, 0x50, 0x44, 0x29, 0x94, 0x6e, 0x48, 0x0a, 0xfb, 0x71,
+	0xed, 0xb8, 0x96, 0x26, 0x9e, 0x68, 0x2e, 0xaa, 0xb2, 0x63, 0xcf, 0x86, 0x0d, 0x12, 0x8f, 0xc0,
+	0x23, 0xb0, 0x64, 0xd9, 0x25, 0x4f, 0xc0, 0xc5, 0xbc, 0x44, 0x97, 0xc8, 0x93, 0x71, 0x12, 0xea,
+	0x38, 0xde, 0x65, 0x66, 0xce, 0x39, 0xf9, 0x92, 0x73, 0x00, 0x3e, 0x63, 0x53, 0x97, 0x89, 0x8e,
+	0x8a, 0xa6, 0x84, 0x8b, 0x73, 0x42, 0x7d, 0xde, 0x91, 0xf3, 0x99, 0x2f, 0x9c, 0x19, 0x67, 0x92,
+	0xc1, 0x8a, 0x3e, 0xb4, 0x0e, 0x82, 0x50, 0x9e, 0x2b, 0xd7, 0x39, 0x63, 0xd3, 0x4e, 0xc0, 0x02,
+	0xd6, 0xd1, 0xaf, 0xae, 0x9a, 0xe8, 0x93, 0x3e, 0xe8, 0x4f, 0x0b, 0x57, 0x0b, 0x07, 0x8c, 0x05,
+	0xd4, 0x5f, 0xa9, 0x3c, 0xc5, 0x89, 0x0c, 0x59, 0x64, 0xde, 0xdb, 0xd7, 0xdf, 0x65, 0x38, 0xf5,
+	0x85, 0x24, 0xd3, 0x59, 0x5e, 0xc0, 0x05, 0x27, 0xb3, 0x99, 0xcf, 0x0d, 0xd6, 0xfe, 0x27, 0x1b,
+	0x80, 0xd7, 0x11, 0xbb, 0x88, 0x4e, 0x13, 0x3c, 0xf8, 0x18, 0x94, 0x3d, 0xc5, 0x91, 0x75, 0xdf,
+	0x7a, 0xd8, 0xe8, 0xde, 0x71, 0x16, 0x66, 0x27, 0x35, 0x3b, 0xcf, 0xcd, 0xb7, 0x8f, 0x12, 0x15,
+	0x7c, 0x04, 0x76, 0xa4, 0x40, 0x3b, 0x5a, 0xdb, 0xca, 0x68, 0x4f, 0x53, 0x92, 0xd1, 0x8e, 0x14,
+	0xd0, 0x01, 0x65, 0xcf, 0xa5, 0xa8, 0xac, 0xc5, 0xf7, 0xb2, 0xc1, 0x4c, 0xb9, 0xd4, 0x7f, 0x47,
+	0xa8, 0xf2, 0x47, 0x89, 0x10, 0x1e, 0x80, 0xf2, 0x84, 0x4a, 0x64, 0x6b, 0xfd, 0xdd, 0x8c, 0xfe,
+	0x05, 0x65, 0x44, 0x1a, 0xf9, 0x84, 0xca, 0x44, 0x1e, 0x0e, 0xfa, 0xa8, 0x92, 0x23, 0x7f, 0x15,
+	0xc9, 0x41, 0xdf, 0xc8, 0xc3, 0x41, 0x3f, 0xa1, 0x51, 0x83, 0x3e, 0xaa, 0xe6, 0xd0, 0xbc, 0x5d,
+	0xd7, 0xab, 0x41, 0x5f, 0xc7, 0xf7, 0xba, 0xa8, 0x96, 0x1f, 0xdf, 0xeb, 0xa6, 0xf1, 0xbd, 0xae,
+	0x8e, 0xef, 0x75, 0x51, 0x7d, 0x4b, 0xfc, 0x52, 0xaf, 0xb4, 0xde, 0x76, 0x19, 0xa3, 0xe8, 0xbf,
+	0x9c, 0xbf, 0x72, 0xc8, 0x18, 0x5d, 0xc8, 0xb5, 0x2e, 0xc9, 0x17, 0x92, 0x23, 0x90, 0x93, 0x3f,
+	0x96, 0x3c, 0x8c, 0x02, 0x93, 0x2f, 0x24, 0x87, 0x4f, 0x40, 0xc5, 0x9d, 0x4b, 0x5f, 0xa0, 0x46,
+	0xce, 0x0f, 0x18, 0x26, 0xaf, 0x0b, 0xc3, 0x42, 0xb9, 0xff, 0xa1, 0x06, 0x9a, 0x63, 0x49, 0x22,
+	0x8f, 0x70, 0xef, 0x24, 0x74, 0x39, 0xe1, 0x73, 0xf8, 0x12, 0xdc, 0x8c, 0x14, 0xa5, 0xc4, 0xa5,
+	0xfe, 0xb2, 0x5c, 0x33, 0x95, 0x6d, 0xf5, 0x67, 0x4d, 0xf0, 0x10, 0xec, 0xa5, 0x97, 0xe9, 0xa4,
+	0xcc, 0x8e, 0xb6, 0x6c, 0x2e, 0x63, 0x81, 0xc7, 0xa0, 0x99, 0xde, 0x8d, 0xa5, 0x97, 0xc4, 0x9b,
+	0x81, 0x6d, 0xc1, 0x19, 0xda, 0x1f, 0x7f, 0xb6, 0xad, 0xd1, 0x75, 0x23, 0x7c, 0x03, 0x6e, 0xad,
+	0x5d, 0x2d, 0xa9, 0xec, 0x02, 0xaa, 0xa1, 0xfd, 0x39, 0x89, 0xdb, 0xe4, 0x85, 0x4f, 0x41, 0x4d,
+	0x18, 0xac, 0x4a, 0x21, 0x56, 0xfd, 0xf2, 0x47, 0xbb, 0xa4, 0xd1, 0x52, 0x13, 0x3c, 0x04, 0x0d,
+	0xb1, 0x86, 0x52, 0x2d, 0x42, 0xd1, 0x11, 0x1a, 0x67, 0xdd, 0x07, 0x8f, 0x01, 0xcc, 0x34, 0x90,
+	0x4c, 0xa1, 0x5c, 0xd0, 0xdb, 0x06, 0x17, 0x3c, 0x5a, 0x4d, 0x20, 0xcd, 0x17, 0x68, 0x57, 0x47,
+	0x6d, 0x69, 0x2e, 0xeb, 0x81, 0x27, 0xab, 0x05, 0x98, 0x06, 0x04, 0xfa, 0xbf, 0x08, 0xc9, 0x74,
+	0x97, 0x71, 0xc2, 0x31, 0xb8, 0xbd, 0xa1, 0x00, 0x81, 0x6e, 0x14, 0x90, 0x99, 0xf6, 0x36, 0x9a,
+	0xe1, 0x33, 0x50, 0x17, 0x29, 0x5a, 0xb3, 0x10, 0x6d, 0xd5, 0xdf, 0xd2, 0x05, 0x8f, 0xc0, 0xae,
+	0x58, 0xc7, 0xd9, 0x2b, 0xc2, 0x59, 0x35, 0xf8, 0x8f, 0x71, 0xf8, 0xe0, 0xea, 0x37, 0xb6, 0xbe,
+	0xc4, 0xd8, 0xfa, 0x1a, 0x63, 0xeb, 0x5b, 0x8c, 0xad, 0xcb, 0x18, 0x97, 0xbe, 0xc7, 0xd8, 0xfa,
+	0x15, 0x63, 0xeb, 0x2a, 0xc6, 0xa5, 0xf7, 0x7f, 0x70, 0xc9, 0xad, 0xea, 0xc0, 0xde, 0xdf, 0x00,
+	0x00, 0x00, 0xff, 0xff, 0x47, 0x59, 0xdd, 0xf8, 0x8b, 0x06, 0x00, 0x00,
 }
