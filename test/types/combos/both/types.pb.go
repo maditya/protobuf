@@ -572,8 +572,8 @@ func (m *StandardLibrary) MarshalTo(data []byte) (int, error) {
 	if m.NullableStdTime != nil {
 		data[i] = 0x1a
 		i++
-		i = encodeVarintTypes(data, i, uint64(m.NullableStdTime.Size()))
-		n14, err := m.NullableStdTime.MarshalTo(data[i:])
+		i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdTime(*m.NullableStdTime)))
+		n14, err := github_com_maditya_protobuf_types.StdTimeMarshalTo(*m.NullableStdTime, data[i:])
 		if err != nil {
 			return 0, err
 		}
@@ -582,8 +582,8 @@ func (m *StandardLibrary) MarshalTo(data []byte) (int, error) {
 	if m.NullableStdDuration != nil {
 		data[i] = 0x22
 		i++
-		i = encodeVarintTypes(data, i, uint64(m.NullableStdDuration.Size()))
-		n15, err := m.NullableStdDuration.MarshalTo(data[i:])
+		i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdDuration(*m.NullableStdDuration)))
+		n15, err := github_com_maditya_protobuf_types.StdDurationMarshalTo(*m.NullableStdDuration, data[i:])
 		if err != nil {
 			return 0, err
 		}
@@ -591,16 +591,16 @@ func (m *StandardLibrary) MarshalTo(data []byte) (int, error) {
 	}
 	data[i] = 0x2a
 	i++
-	i = encodeVarintTypes(data, i, uint64(m.StdTime.Size()))
-	n16, err := m.StdTime.MarshalTo(data[i:])
+	i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdTime(m.StdTime)))
+	n16, err := github_com_maditya_protobuf_types.StdTimeMarshalTo(m.StdTime, data[i:])
 	if err != nil {
 		return 0, err
 	}
 	i += n16
 	data[i] = 0x32
 	i++
-	i = encodeVarintTypes(data, i, uint64(m.StdDuration.Size()))
-	n17, err := m.StdDuration.MarshalTo(data[i:])
+	i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdDuration(m.StdDuration)))
+	n17, err := github_com_maditya_protobuf_types.StdDurationMarshalTo(m.StdDuration, data[i:])
 	if err != nil {
 		return 0, err
 	}
@@ -633,8 +633,8 @@ func (m *StandardLibrary) MarshalTo(data []byte) (int, error) {
 		for _, msg := range m.NullableStdTimes {
 			data[i] = 0x6a
 			i++
-			i = encodeVarintTypes(data, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(data[i:])
+			i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdTime(*msg)))
+			n, err := github_com_maditya_protobuf_types.StdTimeMarshalTo(*msg, data[i:])
 			if err != nil {
 				return 0, err
 			}
@@ -645,8 +645,8 @@ func (m *StandardLibrary) MarshalTo(data []byte) (int, error) {
 		for _, msg := range m.NullableStdDurations {
 			data[i] = 0x72
 			i++
-			i = encodeVarintTypes(data, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(data[i:])
+			i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdDuration(*msg)))
+			n, err := github_com_maditya_protobuf_types.StdDurationMarshalTo(*msg, data[i:])
 			if err != nil {
 				return 0, err
 			}
@@ -657,8 +657,8 @@ func (m *StandardLibrary) MarshalTo(data []byte) (int, error) {
 		for _, msg := range m.StdTimes {
 			data[i] = 0x7a
 			i++
-			i = encodeVarintTypes(data, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(data[i:])
+			i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdTime(msg)))
+			n, err := github_com_maditya_protobuf_types.StdTimeMarshalTo(msg, data[i:])
 			if err != nil {
 				return 0, err
 			}
@@ -671,8 +671,8 @@ func (m *StandardLibrary) MarshalTo(data []byte) (int, error) {
 			i++
 			data[i] = 0x1
 			i++
-			i = encodeVarintTypes(data, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(data[i:])
+			i = encodeVarintTypes(data, i, uint64(github_com_maditya_protobuf_types.SizeOfStdDuration(msg)))
+			n, err := github_com_maditya_protobuf_types.StdDurationMarshalTo(msg, data[i:])
 			if err != nil {
 				return 0, err
 			}
