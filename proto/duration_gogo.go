@@ -28,7 +28,12 @@
 
 package proto
 
-import "time"
+import (
+	"reflect"
+	"time"
+)
+
+var durationType = reflect.TypeOf((*time.Duration)(nil)).Elem()
 
 type duration struct {
 	Seconds int64 `protobuf:"varint,1,opt,name=seconds,proto3" json:"seconds,omitempty"`
@@ -56,7 +61,6 @@ func (o *Buffer) decDuration() (time.Duration, error) {
 }
 
 func (o *Buffer) dec_duration(p *Properties, base structPointer) error {
-	panic("todo")
 	d, err := o.decDuration()
 	if err != nil {
 		return err
@@ -66,7 +70,6 @@ func (o *Buffer) dec_duration(p *Properties, base structPointer) error {
 }
 
 func (o *Buffer) dec_ref_duration(p *Properties, base structPointer) error {
-	panic("todo")
 	d, err := o.decDuration()
 	if err != nil {
 		return err
@@ -95,20 +98,50 @@ func (o *Buffer) dec_slice_ref_duration(p *Properties, base structPointer) error
 	return nil
 }
 
-func (o *Buffer) enc_ref_duration(p *Properties, base structPointer) error {
-	panic("todo")
-}
-
 func size_duration(p *Properties, base structPointer) (n int) {
-	panic("todo")
+	structp := structPointer_GetStructPointer(base, p.field)
+	if structPointer_IsNil(structp) {
+		return 0
+	}
+	dur := structPointer_Interface(structp, durationType).(*time.Duration)
+	d := durationProto(*dur)
+	size := Size(d)
+	return size + sizeVarint(uint64(size)) + len(p.tagcode)
 }
 
 func (o *Buffer) enc_duration(p *Properties, base structPointer) error {
-	panic("todo")
+	structp := structPointer_GetStructPointer(base, p.field)
+	if structPointer_IsNil(structp) {
+		return ErrNil
+	}
+	dur := structPointer_Interface(structp, durationType).(*time.Duration)
+	d := durationProto(*dur)
+	data, err := Marshal(d)
+	if err != nil {
+		return err
+	}
+	o.buf = append(o.buf, p.tagcode...)
+	o.EncodeRawBytes(data)
+	return nil
 }
 
 func size_ref_duration(p *Properties, base structPointer) (n int) {
-	panic("todo")
+	dur := structPointer_InterfaceAt(base, p.field, durationType).(*time.Duration)
+	d := durationProto(*dur)
+	size := Size(d)
+	return size + sizeVarint(uint64(size)) + len(p.tagcode)
+}
+
+func (o *Buffer) enc_ref_duration(p *Properties, base structPointer) error {
+	dur := structPointer_InterfaceAt(base, p.field, durationType).(*time.Duration)
+	d := durationProto(*dur)
+	data, err := Marshal(d)
+	if err != nil {
+		return err
+	}
+	o.buf = append(o.buf, p.tagcode...)
+	o.EncodeRawBytes(data)
+	return nil
 }
 
 func (o *Buffer) enc_slice_duration(p *Properties, base structPointer) error {
