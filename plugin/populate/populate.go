@@ -85,15 +85,14 @@ package populate
 
 import (
 	"fmt"
-	"math"
-	"strconv"
-	"strings"
-
 	"github.com/maditya/protobuf/gogoproto"
 	"github.com/maditya/protobuf/proto"
 	descriptor "github.com/maditya/protobuf/protoc-gen-gogo/descriptor"
 	"github.com/maditya/protobuf/protoc-gen-gogo/generator"
 	"github.com/maditya/protobuf/vanity"
+	"math"
+	"strconv"
+	"strings"
 )
 
 type VarGen interface {
@@ -124,7 +123,6 @@ type plugin struct {
 	varGen     VarGen
 	atleastOne bool
 	localName  string
-	typesPkg   generator.Single
 }
 
 func NewPlugin() *plugin {
@@ -182,8 +180,7 @@ func negative(fieldType descriptor.FieldDescriptorProto_Type) bool {
 	return true
 }
 
-func (p *plugin) getFuncName(goTypName string) string {
-	//fmt.Fprintf(os.Stderr, "goTypName:%s\n", goTypName)
+func getFuncName(goTypName string) string {
 	funcName := "NewPopulated" + goTypName
 	goTypNames := strings.Split(goTypName, ".")
 	if len(goTypNames) == 2 {
@@ -191,24 +188,17 @@ func (p *plugin) getFuncName(goTypName string) string {
 	} else if len(goTypNames) != 1 {
 		panic(fmt.Errorf("unreachable: too many dots in %v", goTypName))
 	}
-	switch funcName {
-	case "time.NewPopulatedTime":
-		funcName = p.typesPkg.Use() + ".NewPopulatedStdTime"
-	case "time.NewPopulatedDuration":
-		p.typesPkg.Use()
-		funcName = p.typesPkg.Use() + ".NewPopulatedStdDuration"
-	}
 	return funcName
 }
 
-func (p *plugin) getFuncCall(goTypName string) string {
-	funcName := p.getFuncName(goTypName)
+func getFuncCall(goTypName string) string {
+	funcName := getFuncName(goTypName)
 	funcCall := funcName + "(r, easy)"
 	return funcCall
 }
 
-func (p *plugin) getCustomFuncCall(goTypName string) string {
-	funcName := p.getFuncName(goTypName)
+func getCustomFuncCall(goTypName string) string {
+	funcName := getFuncName(goTypName)
 	funcCall := funcName + "(r)"
 	return funcCall
 }
@@ -258,13 +248,14 @@ func (p *plugin) GenerateField(file *generator.FileDescriptor, message *generato
 		if keygoAliasTyp != keygoTyp {
 			keyval = keygoAliasTyp + `(` + keyval + `)`
 		}
-		if m.ValueField.IsMessage() || p.IsGroup(field) {
+		if m.ValueField.IsMessage() || p.IsGroup(field) ||
+			(m.ValueField.IsBytes() && gogoproto.IsCustomType(field)) {
 			s := `this.` + fieldname + `[` + keyval + `] = `
-			if gogoproto.IsStdTime(field) || gogoproto.IsStdDuration(field) {
-				valuegoTyp = valuegoAliasTyp
+			funcCall := getCustomFuncCall(goTypName)
+			if !gogoproto.IsCustomType(field) {
+				goTypName = generator.GoTypeToName(valuegoTyp)
+				funcCall = getFuncCall(goTypName)
 			}
-			goTypName = generator.GoTypeToName(valuegoTyp)
-			funcCall := p.getFuncCall(goTypName)
 			if !nullable {
 				funcCall = `*` + funcCall
 			}
@@ -303,7 +294,7 @@ func (p *plugin) GenerateField(file *generator.FileDescriptor, message *generato
 		p.Out()
 		p.P(`}`)
 	} else if field.IsMessage() || p.IsGroup(field) {
-		funcCall := p.getFuncCall(goTypName)
+		funcCall := getFuncCall(goTypName)
 		if field.IsRepeated() {
 			p.P(p.varGen.Next(), ` := r.Intn(5)`)
 			p.P(`this.`, fieldname, ` = make(`, goTyp, `, `, p.varGen.Current(), `)`)
@@ -343,7 +334,7 @@ func (p *plugin) GenerateField(file *generator.FileDescriptor, message *generato
 				p.P(`this.`, fieldname, ` = &`, p.varGen.Current())
 			}
 		} else if gogoproto.IsCustomType(field) {
-			funcCall := p.getCustomFuncCall(goTypName)
+			funcCall := getCustomFuncCall(goTypName)
 			if field.IsRepeated() {
 				p.P(p.varGen.Next(), ` := r.Intn(10)`)
 				p.P(`this.`, fieldname, ` = make(`, goTyp, `, `, p.varGen.Current(), `)`)
@@ -497,7 +488,7 @@ func (p *plugin) Generate(file *generator.FileDescriptor) {
 	p.PluginImports = generator.NewPluginImports(p.Generator)
 	p.varGen = NewVarGen()
 	proto3 := gogoproto.IsProto3(file.FileDescriptorProto)
-	p.typesPkg = p.NewImport("github.com/maditya/protobuf/types")
+
 	p.localName = generator.FileName(file)
 	protoPkg := p.NewImport("github.com/maditya/protobuf/proto")
 	if !gogoproto.ImportsGoGoProto(file.FileDescriptorProto) {
