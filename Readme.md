@@ -24,7 +24,7 @@ These projects use gogoprotobuf:
   - <a href="https://www.spacemonkey.com/">spacemonkey</a> - <a href="https://www.spacemonkey.com/blog/posts/go-space-monkey">blog</a>
   - <a href="http://badoo.com">badoo</a> - <a href="https://github.com/badoo/lsd/blob/32061f501c5eca9c76c596d790b450501ba27b2f/proto/lsd.proto">sample proto file</a>
   - <a href="https://github.com/mesos/mesos-go">mesos-go</a> - <a href="https://github.com/mesos/mesos-go/blob/master/mesosproto/mesos.proto">sample proto file</a>
-  - <a href="https://github.com/mozilla-services/heka">heka</a> - <a href="https://github.com/mozilla-services/heka/commit/eb72fbf7d2d28249fbaf8d8dc6607f4eb6f03351">the switch from golang/protobuf to gogo/protobuf when it was still on code.google.com</a>
+  - <a href="https://github.com/mozilla-services/heka">heka</a> - <a href="https://github.com/mozilla-services/heka/commit/eb72fbf7d2d28249fbaf8d8dc6607f4eb6f03351">the switch from golang/protobuf to maditya/protobuf when it was still on code.google.com</a>
   - <a href="https://github.com/cockroachdb/cockroach">cockroachdb</a> - <a href="https://github.com/cockroachdb/cockroach/blob/651d54d393e391a30154e9117ab4b18d9ee6d845/roachpb/metadata.proto">sample proto file</a>
   - <a href="https://github.com/jbenet/go-ipfs">go-ipfs</a> - <a href="https://github.com/ipfs/go-ipfs/blob/2b6da0c024f28abeb16947fb452787196a6b56a2/merkledag/pb/merkledag.proto">sample proto file</a>
   - <a href="https://github.com/philhofer/rkive">rkive-go</a> - <a href="https://github.com/philhofer/rkive/blob/e5dd884d3ea07b341321073882ae28aa16dd11be/rpbc/riak_dt.proto">sample proto file</a>
@@ -35,6 +35,9 @@ These projects use gogoprotobuf:
   - <a href="http://kubernetes.io/">kubernetes</a> - <a href="https://github.com/kubernetes/kubernetes/tree/88d8628137f94ee816aaa6606ae8cd045dee0bff/cmd/libs/go2idl">go2idl built on top of gogoprotobuf</a>
   - <a href="https://dgraph.io/">dgraph</a> - <a href="https://github.com/dgraph-io/dgraph/releases/tag/v0.4.3">release notes</a> - <a href="https://discuss.dgraph.io/t/gogoprotobuf-is-extremely-fast/639">benchmarks</a></a>
   - <a href="https://github.com/centrifugal/centrifugo">centrifugo</a> - <a href="https://forum.golangbridge.org/t/centrifugo-real-time-messaging-websocket-or-sockjs-server-v1-5-0-released/2861">release notes</a> - <a href="https://medium.com/@fzambia/centrifugo-protobuf-inside-json-outside-21d39bdabd68#.o3icmgjqd">blog</a>
+  - <a href="https://github.com/docker/swarmkit">docker swarmkit</a> - <a href="https://github.com/docker/swarmkit/blob/63600e01af3b8da2a0ed1c9fa6e1ae4299d75edb/api/objects.proto">sample proto file</a>
+  - <a href="https://nats.io/">nats.io</a> - <a href="https://github.com/nats-io/go-nats-streaming/blob/master/pb/protocol.proto">go-nats-streaming</a>
+  - <a href="https://github.com/pingcap/tidb">tidb</a> - Communication between <a href="https://github.com/pingcap/tipb/blob/master/generate-go.sh#L4">tidb</a> and <a href="https://github.com/pingcap/kvproto/blob/master/generate_go.sh#L3">tikv</a>
 
 Please lets us know if you are using gogoprotobuf by posting on our <a href="https://groups.google.com/forum/#!topic/gogoprotobuf/Brw76BxmFpQ">GoogleGroup</a>.
 
