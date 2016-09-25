@@ -554,7 +554,7 @@ func (this *Castaway) GoString() string {
 	s := make([]string, 0, 6)
 	s = append(s, "&castvalue.Castaway{")
 	keysForCastMapValueMessage := make([]int32, 0, len(this.CastMapValueMessage))
-	for k := range this.CastMapValueMessage {
+	for k, _ := range this.CastMapValueMessage {
 		keysForCastMapValueMessage = append(keysForCastMapValueMessage, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessage)
@@ -567,7 +567,7 @@ func (this *Castaway) GoString() string {
 		s = append(s, "CastMapValueMessage: "+mapStringForCastMapValueMessage+",\n")
 	}
 	keysForCastMapValueMessageNullable := make([]int32, 0, len(this.CastMapValueMessageNullable))
-	for k := range this.CastMapValueMessageNullable {
+	for k, _ := range this.CastMapValueMessageNullable {
 		keysForCastMapValueMessageNullable = append(keysForCastMapValueMessageNullable, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessageNullable)
@@ -796,7 +796,7 @@ func (this *Castaway) String() string {
 		return "nil"
 	}
 	keysForCastMapValueMessage := make([]int32, 0, len(this.CastMapValueMessage))
-	for k := range this.CastMapValueMessage {
+	for k, _ := range this.CastMapValueMessage {
 		keysForCastMapValueMessage = append(keysForCastMapValueMessage, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessage)
@@ -806,7 +806,7 @@ func (this *Castaway) String() string {
 	}
 	mapStringForCastMapValueMessage += "}"
 	keysForCastMapValueMessageNullable := make([]int32, 0, len(this.CastMapValueMessageNullable))
-	for k := range this.CastMapValueMessageNullable {
+	for k, _ := range this.CastMapValueMessageNullable {
 		keysForCastMapValueMessageNullable = append(keysForCastMapValueMessageNullable, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessageNullable)

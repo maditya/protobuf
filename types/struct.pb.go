@@ -653,7 +653,7 @@ func (this *Struct) GoString() string {
 	s := make([]string, 0, 5)
 	s = append(s, "&types.Struct{")
 	keysForFields := make([]string, 0, len(this.Fields))
-	for k := range this.Fields {
+	for k, _ := range this.Fields {
 		keysForFields = append(keysForFields, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForFields)
@@ -782,7 +782,7 @@ func (m *Struct) MarshalTo(data []byte) (int, error) {
 	var l int
 	_ = l
 	if len(m.Fields) > 0 {
-		for k := range m.Fields {
+		for k, _ := range m.Fields {
 			data[i] = 0xa
 			i++
 			v := m.Fields[k]
@@ -1212,7 +1212,7 @@ func (this *Struct) String() string {
 		return "nil"
 	}
 	keysForFields := make([]string, 0, len(this.Fields))
-	for k := range this.Fields {
+	for k, _ := range this.Fields {
 		keysForFields = append(keysForFields, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForFields)

@@ -65,7 +65,7 @@ func (m *M) MarshalTo(data []byte) (int, error) {
 	var l int
 	_ = l
 	if len(m.F) > 0 {
-		for k := range m.F {
+		for k, _ := range m.F {
 			data[i] = 0xa
 			i++
 			v := m.F[k]

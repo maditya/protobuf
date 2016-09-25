@@ -556,7 +556,7 @@ func (this *Castaway) GoString() string {
 	s := make([]string, 0, 6)
 	s = append(s, "&castvalue.Castaway{")
 	keysForCastMapValueMessage := make([]int32, 0, len(this.CastMapValueMessage))
-	for k := range this.CastMapValueMessage {
+	for k, _ := range this.CastMapValueMessage {
 		keysForCastMapValueMessage = append(keysForCastMapValueMessage, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessage)
@@ -569,7 +569,7 @@ func (this *Castaway) GoString() string {
 		s = append(s, "CastMapValueMessage: "+mapStringForCastMapValueMessage+",\n")
 	}
 	keysForCastMapValueMessageNullable := make([]int32, 0, len(this.CastMapValueMessageNullable))
-	for k := range this.CastMapValueMessageNullable {
+	for k, _ := range this.CastMapValueMessageNullable {
 		keysForCastMapValueMessageNullable = append(keysForCastMapValueMessageNullable, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessageNullable)
@@ -798,7 +798,7 @@ func (this *Castaway) String() string {
 		return "nil"
 	}
 	keysForCastMapValueMessage := make([]int32, 0, len(this.CastMapValueMessage))
-	for k := range this.CastMapValueMessage {
+	for k, _ := range this.CastMapValueMessage {
 		keysForCastMapValueMessage = append(keysForCastMapValueMessage, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessage)
@@ -808,7 +808,7 @@ func (this *Castaway) String() string {
 	}
 	mapStringForCastMapValueMessage += "}"
 	keysForCastMapValueMessageNullable := make([]int32, 0, len(this.CastMapValueMessageNullable))
-	for k := range this.CastMapValueMessageNullable {
+	for k, _ := range this.CastMapValueMessageNullable {
 		keysForCastMapValueMessageNullable = append(keysForCastMapValueMessageNullable, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForCastMapValueMessageNullable)
@@ -860,7 +860,7 @@ func (m *Castaway) MarshalTo(data []byte) (int, error) {
 	var l int
 	_ = l
 	if len(m.CastMapValueMessage) > 0 {
-		for k := range m.CastMapValueMessage {
+		for k, _ := range m.CastMapValueMessage {
 			data[i] = 0xa
 			i++
 			v := m.CastMapValueMessage[k]
@@ -885,7 +885,7 @@ func (m *Castaway) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.CastMapValueMessageNullable) > 0 {
-		for k := range m.CastMapValueMessageNullable {
+		for k, _ := range m.CastMapValueMessageNullable {
 			data[i] = 0x12
 			i++
 			v := m.CastMapValueMessageNullable[k]

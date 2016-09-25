@@ -845,7 +845,7 @@ func (this *Castaway) GoString() string {
 		s = append(s, "MyUint64S: "+fmt.Sprintf("%#v", this.MyUint64S)+",\n")
 	}
 	keysForMyMap := make([]string, 0, len(this.MyMap))
-	for k := range this.MyMap {
+	for k, _ := range this.MyMap {
 		keysForMyMap = append(keysForMyMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForMyMap)
@@ -858,7 +858,7 @@ func (this *Castaway) GoString() string {
 		s = append(s, "MyMap: "+mapStringForMyMap+",\n")
 	}
 	keysForMyCustomMap := make([]string, 0, len(this.MyCustomMap))
-	for k := range this.MyCustomMap {
+	for k, _ := range this.MyCustomMap {
 		keysForMyCustomMap = append(keysForMyCustomMap, string(k))
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForMyCustomMap)
@@ -871,7 +871,7 @@ func (this *Castaway) GoString() string {
 		s = append(s, "MyCustomMap: "+mapStringForMyCustomMap+",\n")
 	}
 	keysForMyNullableMap := make([]int32, 0, len(this.MyNullableMap))
-	for k := range this.MyNullableMap {
+	for k, _ := range this.MyNullableMap {
 		keysForMyNullableMap = append(keysForMyNullableMap, int32(k))
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyNullableMap)
@@ -884,7 +884,7 @@ func (this *Castaway) GoString() string {
 		s = append(s, "MyNullableMap: "+mapStringForMyNullableMap+",\n")
 	}
 	keysForMyEmbeddedMap := make([]int32, 0, len(this.MyEmbeddedMap))
-	for k := range this.MyEmbeddedMap {
+	for k, _ := range this.MyEmbeddedMap {
 		keysForMyEmbeddedMap = append(keysForMyEmbeddedMap, int32(k))
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyEmbeddedMap)
@@ -1233,7 +1233,7 @@ func (this *Castaway) String() string {
 		return "nil"
 	}
 	keysForMyMap := make([]string, 0, len(this.MyMap))
-	for k := range this.MyMap {
+	for k, _ := range this.MyMap {
 		keysForMyMap = append(keysForMyMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForMyMap)
@@ -1243,7 +1243,7 @@ func (this *Castaway) String() string {
 	}
 	mapStringForMyMap += "}"
 	keysForMyCustomMap := make([]string, 0, len(this.MyCustomMap))
-	for k := range this.MyCustomMap {
+	for k, _ := range this.MyCustomMap {
 		keysForMyCustomMap = append(keysForMyCustomMap, string(k))
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForMyCustomMap)
@@ -1253,7 +1253,7 @@ func (this *Castaway) String() string {
 	}
 	mapStringForMyCustomMap += "}"
 	keysForMyNullableMap := make([]int32, 0, len(this.MyNullableMap))
-	for k := range this.MyNullableMap {
+	for k, _ := range this.MyNullableMap {
 		keysForMyNullableMap = append(keysForMyNullableMap, int32(k))
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyNullableMap)
@@ -1263,7 +1263,7 @@ func (this *Castaway) String() string {
 	}
 	mapStringForMyNullableMap += "}"
 	keysForMyEmbeddedMap := make([]int32, 0, len(this.MyEmbeddedMap))
-	for k := range this.MyEmbeddedMap {
+	for k, _ := range this.MyEmbeddedMap {
 		keysForMyEmbeddedMap = append(keysForMyEmbeddedMap, int32(k))
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForMyEmbeddedMap)

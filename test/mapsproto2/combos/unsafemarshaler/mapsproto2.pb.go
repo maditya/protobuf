@@ -1671,7 +1671,7 @@ func (this *CustomMap) GoString() string {
 	s := make([]string, 0, 8)
 	s = append(s, "&proto2_maps.CustomMap{")
 	keysForNullable128S := make([]string, 0, len(this.Nullable128S))
-	for k := range this.Nullable128S {
+	for k, _ := range this.Nullable128S {
 		keysForNullable128S = append(keysForNullable128S, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForNullable128S)
@@ -1684,7 +1684,7 @@ func (this *CustomMap) GoString() string {
 		s = append(s, "Nullable128S: "+mapStringForNullable128S+",\n")
 	}
 	keysForUint128S := make([]string, 0, len(this.Uint128S))
-	for k := range this.Uint128S {
+	for k, _ := range this.Uint128S {
 		keysForUint128S = append(keysForUint128S, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForUint128S)
@@ -1697,7 +1697,7 @@ func (this *CustomMap) GoString() string {
 		s = append(s, "Uint128S: "+mapStringForUint128S+",\n")
 	}
 	keysForNullableIds := make([]string, 0, len(this.NullableIds))
-	for k := range this.NullableIds {
+	for k, _ := range this.NullableIds {
 		keysForNullableIds = append(keysForNullableIds, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForNullableIds)
@@ -1710,7 +1710,7 @@ func (this *CustomMap) GoString() string {
 		s = append(s, "NullableIds: "+mapStringForNullableIds+",\n")
 	}
 	keysForIds := make([]string, 0, len(this.Ids))
-	for k := range this.Ids {
+	for k, _ := range this.Ids {
 		keysForIds = append(keysForIds, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForIds)
@@ -1735,7 +1735,7 @@ func (this *AllMaps) GoString() string {
 	s := make([]string, 0, 21)
 	s = append(s, "&proto2_maps.AllMaps{")
 	keysForStringToDoubleMap := make([]string, 0, len(this.StringToDoubleMap))
-	for k := range this.StringToDoubleMap {
+	for k, _ := range this.StringToDoubleMap {
 		keysForStringToDoubleMap = append(keysForStringToDoubleMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToDoubleMap)
@@ -1748,7 +1748,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "StringToDoubleMap: "+mapStringForStringToDoubleMap+",\n")
 	}
 	keysForStringToFloatMap := make([]string, 0, len(this.StringToFloatMap))
-	for k := range this.StringToFloatMap {
+	for k, _ := range this.StringToFloatMap {
 		keysForStringToFloatMap = append(keysForStringToFloatMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToFloatMap)
@@ -1761,7 +1761,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "StringToFloatMap: "+mapStringForStringToFloatMap+",\n")
 	}
 	keysForInt32Map := make([]int32, 0, len(this.Int32Map))
-	for k := range this.Int32Map {
+	for k, _ := range this.Int32Map {
 		keysForInt32Map = append(keysForInt32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForInt32Map)
@@ -1774,7 +1774,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Int32Map: "+mapStringForInt32Map+",\n")
 	}
 	keysForInt64Map := make([]int64, 0, len(this.Int64Map))
-	for k := range this.Int64Map {
+	for k, _ := range this.Int64Map {
 		keysForInt64Map = append(keysForInt64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForInt64Map)
@@ -1787,7 +1787,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Int64Map: "+mapStringForInt64Map+",\n")
 	}
 	keysForUint32Map := make([]uint32, 0, len(this.Uint32Map))
-	for k := range this.Uint32Map {
+	for k, _ := range this.Uint32Map {
 		keysForUint32Map = append(keysForUint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForUint32Map)
@@ -1800,7 +1800,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Uint32Map: "+mapStringForUint32Map+",\n")
 	}
 	keysForUint64Map := make([]uint64, 0, len(this.Uint64Map))
-	for k := range this.Uint64Map {
+	for k, _ := range this.Uint64Map {
 		keysForUint64Map = append(keysForUint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForUint64Map)
@@ -1813,7 +1813,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Uint64Map: "+mapStringForUint64Map+",\n")
 	}
 	keysForSint32Map := make([]int32, 0, len(this.Sint32Map))
-	for k := range this.Sint32Map {
+	for k, _ := range this.Sint32Map {
 		keysForSint32Map = append(keysForSint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSint32Map)
@@ -1826,7 +1826,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Sint32Map: "+mapStringForSint32Map+",\n")
 	}
 	keysForSint64Map := make([]int64, 0, len(this.Sint64Map))
-	for k := range this.Sint64Map {
+	for k, _ := range this.Sint64Map {
 		keysForSint64Map = append(keysForSint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSint64Map)
@@ -1839,7 +1839,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Sint64Map: "+mapStringForSint64Map+",\n")
 	}
 	keysForFixed32Map := make([]uint32, 0, len(this.Fixed32Map))
-	for k := range this.Fixed32Map {
+	for k, _ := range this.Fixed32Map {
 		keysForFixed32Map = append(keysForFixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForFixed32Map)
@@ -1852,7 +1852,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Fixed32Map: "+mapStringForFixed32Map+",\n")
 	}
 	keysForSfixed32Map := make([]int32, 0, len(this.Sfixed32Map))
-	for k := range this.Sfixed32Map {
+	for k, _ := range this.Sfixed32Map {
 		keysForSfixed32Map = append(keysForSfixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSfixed32Map)
@@ -1865,7 +1865,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Sfixed32Map: "+mapStringForSfixed32Map+",\n")
 	}
 	keysForFixed64Map := make([]uint64, 0, len(this.Fixed64Map))
-	for k := range this.Fixed64Map {
+	for k, _ := range this.Fixed64Map {
 		keysForFixed64Map = append(keysForFixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForFixed64Map)
@@ -1878,7 +1878,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Fixed64Map: "+mapStringForFixed64Map+",\n")
 	}
 	keysForSfixed64Map := make([]int64, 0, len(this.Sfixed64Map))
-	for k := range this.Sfixed64Map {
+	for k, _ := range this.Sfixed64Map {
 		keysForSfixed64Map = append(keysForSfixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSfixed64Map)
@@ -1891,7 +1891,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "Sfixed64Map: "+mapStringForSfixed64Map+",\n")
 	}
 	keysForBoolMap := make([]bool, 0, len(this.BoolMap))
-	for k := range this.BoolMap {
+	for k, _ := range this.BoolMap {
 		keysForBoolMap = append(keysForBoolMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Bools(keysForBoolMap)
@@ -1904,7 +1904,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "BoolMap: "+mapStringForBoolMap+",\n")
 	}
 	keysForStringMap := make([]string, 0, len(this.StringMap))
-	for k := range this.StringMap {
+	for k, _ := range this.StringMap {
 		keysForStringMap = append(keysForStringMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringMap)
@@ -1917,7 +1917,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "StringMap: "+mapStringForStringMap+",\n")
 	}
 	keysForStringToBytesMap := make([]string, 0, len(this.StringToBytesMap))
-	for k := range this.StringToBytesMap {
+	for k, _ := range this.StringToBytesMap {
 		keysForStringToBytesMap = append(keysForStringToBytesMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToBytesMap)
@@ -1930,7 +1930,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "StringToBytesMap: "+mapStringForStringToBytesMap+",\n")
 	}
 	keysForStringToEnumMap := make([]string, 0, len(this.StringToEnumMap))
-	for k := range this.StringToEnumMap {
+	for k, _ := range this.StringToEnumMap {
 		keysForStringToEnumMap = append(keysForStringToEnumMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToEnumMap)
@@ -1943,7 +1943,7 @@ func (this *AllMaps) GoString() string {
 		s = append(s, "StringToEnumMap: "+mapStringForStringToEnumMap+",\n")
 	}
 	keysForStringToMsgMap := make([]string, 0, len(this.StringToMsgMap))
-	for k := range this.StringToMsgMap {
+	for k, _ := range this.StringToMsgMap {
 		keysForStringToMsgMap = append(keysForStringToMsgMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToMsgMap)
@@ -1968,7 +1968,7 @@ func (this *AllMapsOrdered) GoString() string {
 	s := make([]string, 0, 21)
 	s = append(s, "&proto2_maps.AllMapsOrdered{")
 	keysForStringToDoubleMap := make([]string, 0, len(this.StringToDoubleMap))
-	for k := range this.StringToDoubleMap {
+	for k, _ := range this.StringToDoubleMap {
 		keysForStringToDoubleMap = append(keysForStringToDoubleMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToDoubleMap)
@@ -1981,7 +1981,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "StringToDoubleMap: "+mapStringForStringToDoubleMap+",\n")
 	}
 	keysForStringToFloatMap := make([]string, 0, len(this.StringToFloatMap))
-	for k := range this.StringToFloatMap {
+	for k, _ := range this.StringToFloatMap {
 		keysForStringToFloatMap = append(keysForStringToFloatMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToFloatMap)
@@ -1994,7 +1994,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "StringToFloatMap: "+mapStringForStringToFloatMap+",\n")
 	}
 	keysForInt32Map := make([]int32, 0, len(this.Int32Map))
-	for k := range this.Int32Map {
+	for k, _ := range this.Int32Map {
 		keysForInt32Map = append(keysForInt32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForInt32Map)
@@ -2007,7 +2007,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Int32Map: "+mapStringForInt32Map+",\n")
 	}
 	keysForInt64Map := make([]int64, 0, len(this.Int64Map))
-	for k := range this.Int64Map {
+	for k, _ := range this.Int64Map {
 		keysForInt64Map = append(keysForInt64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForInt64Map)
@@ -2020,7 +2020,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Int64Map: "+mapStringForInt64Map+",\n")
 	}
 	keysForUint32Map := make([]uint32, 0, len(this.Uint32Map))
-	for k := range this.Uint32Map {
+	for k, _ := range this.Uint32Map {
 		keysForUint32Map = append(keysForUint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForUint32Map)
@@ -2033,7 +2033,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Uint32Map: "+mapStringForUint32Map+",\n")
 	}
 	keysForUint64Map := make([]uint64, 0, len(this.Uint64Map))
-	for k := range this.Uint64Map {
+	for k, _ := range this.Uint64Map {
 		keysForUint64Map = append(keysForUint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForUint64Map)
@@ -2046,7 +2046,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Uint64Map: "+mapStringForUint64Map+",\n")
 	}
 	keysForSint32Map := make([]int32, 0, len(this.Sint32Map))
-	for k := range this.Sint32Map {
+	for k, _ := range this.Sint32Map {
 		keysForSint32Map = append(keysForSint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSint32Map)
@@ -2059,7 +2059,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Sint32Map: "+mapStringForSint32Map+",\n")
 	}
 	keysForSint64Map := make([]int64, 0, len(this.Sint64Map))
-	for k := range this.Sint64Map {
+	for k, _ := range this.Sint64Map {
 		keysForSint64Map = append(keysForSint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSint64Map)
@@ -2072,7 +2072,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Sint64Map: "+mapStringForSint64Map+",\n")
 	}
 	keysForFixed32Map := make([]uint32, 0, len(this.Fixed32Map))
-	for k := range this.Fixed32Map {
+	for k, _ := range this.Fixed32Map {
 		keysForFixed32Map = append(keysForFixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForFixed32Map)
@@ -2085,7 +2085,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Fixed32Map: "+mapStringForFixed32Map+",\n")
 	}
 	keysForSfixed32Map := make([]int32, 0, len(this.Sfixed32Map))
-	for k := range this.Sfixed32Map {
+	for k, _ := range this.Sfixed32Map {
 		keysForSfixed32Map = append(keysForSfixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSfixed32Map)
@@ -2098,7 +2098,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Sfixed32Map: "+mapStringForSfixed32Map+",\n")
 	}
 	keysForFixed64Map := make([]uint64, 0, len(this.Fixed64Map))
-	for k := range this.Fixed64Map {
+	for k, _ := range this.Fixed64Map {
 		keysForFixed64Map = append(keysForFixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForFixed64Map)
@@ -2111,7 +2111,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Fixed64Map: "+mapStringForFixed64Map+",\n")
 	}
 	keysForSfixed64Map := make([]int64, 0, len(this.Sfixed64Map))
-	for k := range this.Sfixed64Map {
+	for k, _ := range this.Sfixed64Map {
 		keysForSfixed64Map = append(keysForSfixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSfixed64Map)
@@ -2124,7 +2124,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "Sfixed64Map: "+mapStringForSfixed64Map+",\n")
 	}
 	keysForBoolMap := make([]bool, 0, len(this.BoolMap))
-	for k := range this.BoolMap {
+	for k, _ := range this.BoolMap {
 		keysForBoolMap = append(keysForBoolMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Bools(keysForBoolMap)
@@ -2137,7 +2137,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "BoolMap: "+mapStringForBoolMap+",\n")
 	}
 	keysForStringMap := make([]string, 0, len(this.StringMap))
-	for k := range this.StringMap {
+	for k, _ := range this.StringMap {
 		keysForStringMap = append(keysForStringMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringMap)
@@ -2150,7 +2150,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "StringMap: "+mapStringForStringMap+",\n")
 	}
 	keysForStringToBytesMap := make([]string, 0, len(this.StringToBytesMap))
-	for k := range this.StringToBytesMap {
+	for k, _ := range this.StringToBytesMap {
 		keysForStringToBytesMap = append(keysForStringToBytesMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToBytesMap)
@@ -2163,7 +2163,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "StringToBytesMap: "+mapStringForStringToBytesMap+",\n")
 	}
 	keysForStringToEnumMap := make([]string, 0, len(this.StringToEnumMap))
-	for k := range this.StringToEnumMap {
+	for k, _ := range this.StringToEnumMap {
 		keysForStringToEnumMap = append(keysForStringToEnumMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToEnumMap)
@@ -2176,7 +2176,7 @@ func (this *AllMapsOrdered) GoString() string {
 		s = append(s, "StringToEnumMap: "+mapStringForStringToEnumMap+",\n")
 	}
 	keysForStringToMsgMap := make([]string, 0, len(this.StringToMsgMap))
-	for k := range this.StringToMsgMap {
+	for k, _ := range this.StringToMsgMap {
 		keysForStringToMsgMap = append(keysForStringToMsgMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToMsgMap)
@@ -3087,7 +3087,7 @@ func (this *CustomMap) String() string {
 		return "nil"
 	}
 	keysForNullable128S := make([]string, 0, len(this.Nullable128S))
-	for k := range this.Nullable128S {
+	for k, _ := range this.Nullable128S {
 		keysForNullable128S = append(keysForNullable128S, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForNullable128S)
@@ -3097,7 +3097,7 @@ func (this *CustomMap) String() string {
 	}
 	mapStringForNullable128S += "}"
 	keysForUint128S := make([]string, 0, len(this.Uint128S))
-	for k := range this.Uint128S {
+	for k, _ := range this.Uint128S {
 		keysForUint128S = append(keysForUint128S, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForUint128S)
@@ -3107,7 +3107,7 @@ func (this *CustomMap) String() string {
 	}
 	mapStringForUint128S += "}"
 	keysForNullableIds := make([]string, 0, len(this.NullableIds))
-	for k := range this.NullableIds {
+	for k, _ := range this.NullableIds {
 		keysForNullableIds = append(keysForNullableIds, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForNullableIds)
@@ -3117,7 +3117,7 @@ func (this *CustomMap) String() string {
 	}
 	mapStringForNullableIds += "}"
 	keysForIds := make([]string, 0, len(this.Ids))
-	for k := range this.Ids {
+	for k, _ := range this.Ids {
 		keysForIds = append(keysForIds, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForIds)
@@ -3141,7 +3141,7 @@ func (this *AllMaps) String() string {
 		return "nil"
 	}
 	keysForStringToDoubleMap := make([]string, 0, len(this.StringToDoubleMap))
-	for k := range this.StringToDoubleMap {
+	for k, _ := range this.StringToDoubleMap {
 		keysForStringToDoubleMap = append(keysForStringToDoubleMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToDoubleMap)
@@ -3151,7 +3151,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForStringToDoubleMap += "}"
 	keysForStringToFloatMap := make([]string, 0, len(this.StringToFloatMap))
-	for k := range this.StringToFloatMap {
+	for k, _ := range this.StringToFloatMap {
 		keysForStringToFloatMap = append(keysForStringToFloatMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToFloatMap)
@@ -3161,7 +3161,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForStringToFloatMap += "}"
 	keysForInt32Map := make([]int32, 0, len(this.Int32Map))
-	for k := range this.Int32Map {
+	for k, _ := range this.Int32Map {
 		keysForInt32Map = append(keysForInt32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForInt32Map)
@@ -3171,7 +3171,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForInt32Map += "}"
 	keysForInt64Map := make([]int64, 0, len(this.Int64Map))
-	for k := range this.Int64Map {
+	for k, _ := range this.Int64Map {
 		keysForInt64Map = append(keysForInt64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForInt64Map)
@@ -3181,7 +3181,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForInt64Map += "}"
 	keysForUint32Map := make([]uint32, 0, len(this.Uint32Map))
-	for k := range this.Uint32Map {
+	for k, _ := range this.Uint32Map {
 		keysForUint32Map = append(keysForUint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForUint32Map)
@@ -3191,7 +3191,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForUint32Map += "}"
 	keysForUint64Map := make([]uint64, 0, len(this.Uint64Map))
-	for k := range this.Uint64Map {
+	for k, _ := range this.Uint64Map {
 		keysForUint64Map = append(keysForUint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForUint64Map)
@@ -3201,7 +3201,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForUint64Map += "}"
 	keysForSint32Map := make([]int32, 0, len(this.Sint32Map))
-	for k := range this.Sint32Map {
+	for k, _ := range this.Sint32Map {
 		keysForSint32Map = append(keysForSint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSint32Map)
@@ -3211,7 +3211,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForSint32Map += "}"
 	keysForSint64Map := make([]int64, 0, len(this.Sint64Map))
-	for k := range this.Sint64Map {
+	for k, _ := range this.Sint64Map {
 		keysForSint64Map = append(keysForSint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSint64Map)
@@ -3221,7 +3221,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForSint64Map += "}"
 	keysForFixed32Map := make([]uint32, 0, len(this.Fixed32Map))
-	for k := range this.Fixed32Map {
+	for k, _ := range this.Fixed32Map {
 		keysForFixed32Map = append(keysForFixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForFixed32Map)
@@ -3231,7 +3231,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForFixed32Map += "}"
 	keysForSfixed32Map := make([]int32, 0, len(this.Sfixed32Map))
-	for k := range this.Sfixed32Map {
+	for k, _ := range this.Sfixed32Map {
 		keysForSfixed32Map = append(keysForSfixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSfixed32Map)
@@ -3241,7 +3241,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForSfixed32Map += "}"
 	keysForFixed64Map := make([]uint64, 0, len(this.Fixed64Map))
-	for k := range this.Fixed64Map {
+	for k, _ := range this.Fixed64Map {
 		keysForFixed64Map = append(keysForFixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForFixed64Map)
@@ -3251,7 +3251,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForFixed64Map += "}"
 	keysForSfixed64Map := make([]int64, 0, len(this.Sfixed64Map))
-	for k := range this.Sfixed64Map {
+	for k, _ := range this.Sfixed64Map {
 		keysForSfixed64Map = append(keysForSfixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSfixed64Map)
@@ -3261,7 +3261,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForSfixed64Map += "}"
 	keysForBoolMap := make([]bool, 0, len(this.BoolMap))
-	for k := range this.BoolMap {
+	for k, _ := range this.BoolMap {
 		keysForBoolMap = append(keysForBoolMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Bools(keysForBoolMap)
@@ -3271,7 +3271,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForBoolMap += "}"
 	keysForStringMap := make([]string, 0, len(this.StringMap))
-	for k := range this.StringMap {
+	for k, _ := range this.StringMap {
 		keysForStringMap = append(keysForStringMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringMap)
@@ -3281,7 +3281,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForStringMap += "}"
 	keysForStringToBytesMap := make([]string, 0, len(this.StringToBytesMap))
-	for k := range this.StringToBytesMap {
+	for k, _ := range this.StringToBytesMap {
 		keysForStringToBytesMap = append(keysForStringToBytesMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToBytesMap)
@@ -3291,7 +3291,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForStringToBytesMap += "}"
 	keysForStringToEnumMap := make([]string, 0, len(this.StringToEnumMap))
-	for k := range this.StringToEnumMap {
+	for k, _ := range this.StringToEnumMap {
 		keysForStringToEnumMap = append(keysForStringToEnumMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToEnumMap)
@@ -3301,7 +3301,7 @@ func (this *AllMaps) String() string {
 	}
 	mapStringForStringToEnumMap += "}"
 	keysForStringToMsgMap := make([]string, 0, len(this.StringToMsgMap))
-	for k := range this.StringToMsgMap {
+	for k, _ := range this.StringToMsgMap {
 		keysForStringToMsgMap = append(keysForStringToMsgMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToMsgMap)
@@ -3338,7 +3338,7 @@ func (this *AllMapsOrdered) String() string {
 		return "nil"
 	}
 	keysForStringToDoubleMap := make([]string, 0, len(this.StringToDoubleMap))
-	for k := range this.StringToDoubleMap {
+	for k, _ := range this.StringToDoubleMap {
 		keysForStringToDoubleMap = append(keysForStringToDoubleMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToDoubleMap)
@@ -3348,7 +3348,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForStringToDoubleMap += "}"
 	keysForStringToFloatMap := make([]string, 0, len(this.StringToFloatMap))
-	for k := range this.StringToFloatMap {
+	for k, _ := range this.StringToFloatMap {
 		keysForStringToFloatMap = append(keysForStringToFloatMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToFloatMap)
@@ -3358,7 +3358,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForStringToFloatMap += "}"
 	keysForInt32Map := make([]int32, 0, len(this.Int32Map))
-	for k := range this.Int32Map {
+	for k, _ := range this.Int32Map {
 		keysForInt32Map = append(keysForInt32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForInt32Map)
@@ -3368,7 +3368,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForInt32Map += "}"
 	keysForInt64Map := make([]int64, 0, len(this.Int64Map))
-	for k := range this.Int64Map {
+	for k, _ := range this.Int64Map {
 		keysForInt64Map = append(keysForInt64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForInt64Map)
@@ -3378,7 +3378,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForInt64Map += "}"
 	keysForUint32Map := make([]uint32, 0, len(this.Uint32Map))
-	for k := range this.Uint32Map {
+	for k, _ := range this.Uint32Map {
 		keysForUint32Map = append(keysForUint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForUint32Map)
@@ -3388,7 +3388,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForUint32Map += "}"
 	keysForUint64Map := make([]uint64, 0, len(this.Uint64Map))
-	for k := range this.Uint64Map {
+	for k, _ := range this.Uint64Map {
 		keysForUint64Map = append(keysForUint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForUint64Map)
@@ -3398,7 +3398,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForUint64Map += "}"
 	keysForSint32Map := make([]int32, 0, len(this.Sint32Map))
-	for k := range this.Sint32Map {
+	for k, _ := range this.Sint32Map {
 		keysForSint32Map = append(keysForSint32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSint32Map)
@@ -3408,7 +3408,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForSint32Map += "}"
 	keysForSint64Map := make([]int64, 0, len(this.Sint64Map))
-	for k := range this.Sint64Map {
+	for k, _ := range this.Sint64Map {
 		keysForSint64Map = append(keysForSint64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSint64Map)
@@ -3418,7 +3418,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForSint64Map += "}"
 	keysForFixed32Map := make([]uint32, 0, len(this.Fixed32Map))
-	for k := range this.Fixed32Map {
+	for k, _ := range this.Fixed32Map {
 		keysForFixed32Map = append(keysForFixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint32s(keysForFixed32Map)
@@ -3428,7 +3428,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForFixed32Map += "}"
 	keysForSfixed32Map := make([]int32, 0, len(this.Sfixed32Map))
-	for k := range this.Sfixed32Map {
+	for k, _ := range this.Sfixed32Map {
 		keysForSfixed32Map = append(keysForSfixed32Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int32s(keysForSfixed32Map)
@@ -3438,7 +3438,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForSfixed32Map += "}"
 	keysForFixed64Map := make([]uint64, 0, len(this.Fixed64Map))
-	for k := range this.Fixed64Map {
+	for k, _ := range this.Fixed64Map {
 		keysForFixed64Map = append(keysForFixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Uint64s(keysForFixed64Map)
@@ -3448,7 +3448,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForFixed64Map += "}"
 	keysForSfixed64Map := make([]int64, 0, len(this.Sfixed64Map))
-	for k := range this.Sfixed64Map {
+	for k, _ := range this.Sfixed64Map {
 		keysForSfixed64Map = append(keysForSfixed64Map, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Int64s(keysForSfixed64Map)
@@ -3458,7 +3458,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForSfixed64Map += "}"
 	keysForBoolMap := make([]bool, 0, len(this.BoolMap))
-	for k := range this.BoolMap {
+	for k, _ := range this.BoolMap {
 		keysForBoolMap = append(keysForBoolMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Bools(keysForBoolMap)
@@ -3468,7 +3468,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForBoolMap += "}"
 	keysForStringMap := make([]string, 0, len(this.StringMap))
-	for k := range this.StringMap {
+	for k, _ := range this.StringMap {
 		keysForStringMap = append(keysForStringMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringMap)
@@ -3478,7 +3478,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForStringMap += "}"
 	keysForStringToBytesMap := make([]string, 0, len(this.StringToBytesMap))
-	for k := range this.StringToBytesMap {
+	for k, _ := range this.StringToBytesMap {
 		keysForStringToBytesMap = append(keysForStringToBytesMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToBytesMap)
@@ -3488,7 +3488,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForStringToBytesMap += "}"
 	keysForStringToEnumMap := make([]string, 0, len(this.StringToEnumMap))
-	for k := range this.StringToEnumMap {
+	for k, _ := range this.StringToEnumMap {
 		keysForStringToEnumMap = append(keysForStringToEnumMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToEnumMap)
@@ -3498,7 +3498,7 @@ func (this *AllMapsOrdered) String() string {
 	}
 	mapStringForStringToEnumMap += "}"
 	keysForStringToMsgMap := make([]string, 0, len(this.StringToMsgMap))
-	for k := range this.StringToMsgMap {
+	for k, _ := range this.StringToMsgMap {
 		keysForStringToMsgMap = append(keysForStringToMsgMap, k)
 	}
 	github_com_maditya_protobuf_sortkeys.Strings(keysForStringToMsgMap)
@@ -3581,7 +3581,7 @@ func (m *CustomMap) MarshalTo(data []byte) (int, error) {
 	var l int
 	_ = l
 	if len(m.Nullable128S) > 0 {
-		for k := range m.Nullable128S {
+		for k, _ := range m.Nullable128S {
 			data[i] = 0xa
 			i++
 			v := m.Nullable128S[k]
@@ -3609,7 +3609,7 @@ func (m *CustomMap) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Uint128S) > 0 {
-		for k := range m.Uint128S {
+		for k, _ := range m.Uint128S {
 			data[i] = 0x12
 			i++
 			v := m.Uint128S[k]
@@ -3633,7 +3633,7 @@ func (m *CustomMap) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.NullableIds) > 0 {
-		for k := range m.NullableIds {
+		for k, _ := range m.NullableIds {
 			data[i] = 0x1a
 			i++
 			v := m.NullableIds[k]
@@ -3661,7 +3661,7 @@ func (m *CustomMap) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Ids) > 0 {
-		for k := range m.Ids {
+		for k, _ := range m.Ids {
 			data[i] = 0x22
 			i++
 			v := m.Ids[k]
@@ -3706,7 +3706,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 	var l int
 	_ = l
 	if len(m.StringToDoubleMap) > 0 {
-		for k := range m.StringToDoubleMap {
+		for k, _ := range m.StringToDoubleMap {
 			data[i] = 0xa
 			i++
 			v := m.StringToDoubleMap[k]
@@ -3722,7 +3722,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.StringToFloatMap) > 0 {
-		for k := range m.StringToFloatMap {
+		for k, _ := range m.StringToFloatMap {
 			data[i] = 0x12
 			i++
 			v := m.StringToFloatMap[k]
@@ -3738,7 +3738,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Int32Map) > 0 {
-		for k := range m.Int32Map {
+		for k, _ := range m.Int32Map {
 			data[i] = 0x1a
 			i++
 			v := m.Int32Map[k]
@@ -3753,7 +3753,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Int64Map) > 0 {
-		for k := range m.Int64Map {
+		for k, _ := range m.Int64Map {
 			data[i] = 0x22
 			i++
 			v := m.Int64Map[k]
@@ -3768,7 +3768,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Uint32Map) > 0 {
-		for k := range m.Uint32Map {
+		for k, _ := range m.Uint32Map {
 			data[i] = 0x2a
 			i++
 			v := m.Uint32Map[k]
@@ -3783,7 +3783,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Uint64Map) > 0 {
-		for k := range m.Uint64Map {
+		for k, _ := range m.Uint64Map {
 			data[i] = 0x32
 			i++
 			v := m.Uint64Map[k]
@@ -3798,7 +3798,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Sint32Map) > 0 {
-		for k := range m.Sint32Map {
+		for k, _ := range m.Sint32Map {
 			data[i] = 0x3a
 			i++
 			v := m.Sint32Map[k]
@@ -3813,7 +3813,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Sint64Map) > 0 {
-		for k := range m.Sint64Map {
+		for k, _ := range m.Sint64Map {
 			data[i] = 0x42
 			i++
 			v := m.Sint64Map[k]
@@ -3828,7 +3828,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Fixed32Map) > 0 {
-		for k := range m.Fixed32Map {
+		for k, _ := range m.Fixed32Map {
 			data[i] = 0x4a
 			i++
 			v := m.Fixed32Map[k]
@@ -3843,7 +3843,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Sfixed32Map) > 0 {
-		for k := range m.Sfixed32Map {
+		for k, _ := range m.Sfixed32Map {
 			data[i] = 0x52
 			i++
 			v := m.Sfixed32Map[k]
@@ -3858,7 +3858,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Fixed64Map) > 0 {
-		for k := range m.Fixed64Map {
+		for k, _ := range m.Fixed64Map {
 			data[i] = 0x5a
 			i++
 			v := m.Fixed64Map[k]
@@ -3873,7 +3873,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.Sfixed64Map) > 0 {
-		for k := range m.Sfixed64Map {
+		for k, _ := range m.Sfixed64Map {
 			data[i] = 0x62
 			i++
 			v := m.Sfixed64Map[k]
@@ -3888,7 +3888,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.BoolMap) > 0 {
-		for k := range m.BoolMap {
+		for k, _ := range m.BoolMap {
 			data[i] = 0x6a
 			i++
 			v := m.BoolMap[k]
@@ -3913,7 +3913,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.StringMap) > 0 {
-		for k := range m.StringMap {
+		for k, _ := range m.StringMap {
 			data[i] = 0x72
 			i++
 			v := m.StringMap[k]
@@ -3930,7 +3930,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.StringToBytesMap) > 0 {
-		for k := range m.StringToBytesMap {
+		for k, _ := range m.StringToBytesMap {
 			data[i] = 0x7a
 			i++
 			v := m.StringToBytesMap[k]
@@ -3953,7 +3953,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.StringToEnumMap) > 0 {
-		for k := range m.StringToEnumMap {
+		for k, _ := range m.StringToEnumMap {
 			data[i] = 0x82
 			i++
 			data[i] = 0x1
@@ -3971,7 +3971,7 @@ func (m *AllMaps) MarshalTo(data []byte) (int, error) {
 		}
 	}
 	if len(m.StringToMsgMap) > 0 {
-		for k := range m.StringToMsgMap {
+		for k, _ := range m.StringToMsgMap {
 			data[i] = 0x8a
 			i++
 			data[i] = 0x1
@@ -4023,7 +4023,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	_ = l
 	if len(m.StringToDoubleMap) > 0 {
 		keysForStringToDoubleMap := make([]string, 0, len(m.StringToDoubleMap))
-		for k := range m.StringToDoubleMap {
+		for k, _ := range m.StringToDoubleMap {
 			keysForStringToDoubleMap = append(keysForStringToDoubleMap, string(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Strings(keysForStringToDoubleMap)
@@ -4044,7 +4044,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.StringToFloatMap) > 0 {
 		keysForStringToFloatMap := make([]string, 0, len(m.StringToFloatMap))
-		for k := range m.StringToFloatMap {
+		for k, _ := range m.StringToFloatMap {
 			keysForStringToFloatMap = append(keysForStringToFloatMap, string(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Strings(keysForStringToFloatMap)
@@ -4065,7 +4065,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Int32Map) > 0 {
 		keysForInt32Map := make([]int32, 0, len(m.Int32Map))
-		for k := range m.Int32Map {
+		for k, _ := range m.Int32Map {
 			keysForInt32Map = append(keysForInt32Map, int32(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Int32s(keysForInt32Map)
@@ -4085,7 +4085,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Int64Map) > 0 {
 		keysForInt64Map := make([]int64, 0, len(m.Int64Map))
-		for k := range m.Int64Map {
+		for k, _ := range m.Int64Map {
 			keysForInt64Map = append(keysForInt64Map, int64(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Int64s(keysForInt64Map)
@@ -4105,7 +4105,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Uint32Map) > 0 {
 		keysForUint32Map := make([]uint32, 0, len(m.Uint32Map))
-		for k := range m.Uint32Map {
+		for k, _ := range m.Uint32Map {
 			keysForUint32Map = append(keysForUint32Map, uint32(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Uint32s(keysForUint32Map)
@@ -4125,7 +4125,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Uint64Map) > 0 {
 		keysForUint64Map := make([]uint64, 0, len(m.Uint64Map))
-		for k := range m.Uint64Map {
+		for k, _ := range m.Uint64Map {
 			keysForUint64Map = append(keysForUint64Map, uint64(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Uint64s(keysForUint64Map)
@@ -4145,7 +4145,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Sint32Map) > 0 {
 		keysForSint32Map := make([]int32, 0, len(m.Sint32Map))
-		for k := range m.Sint32Map {
+		for k, _ := range m.Sint32Map {
 			keysForSint32Map = append(keysForSint32Map, int32(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Int32s(keysForSint32Map)
@@ -4165,7 +4165,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Sint64Map) > 0 {
 		keysForSint64Map := make([]int64, 0, len(m.Sint64Map))
-		for k := range m.Sint64Map {
+		for k, _ := range m.Sint64Map {
 			keysForSint64Map = append(keysForSint64Map, int64(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Int64s(keysForSint64Map)
@@ -4185,7 +4185,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Fixed32Map) > 0 {
 		keysForFixed32Map := make([]uint32, 0, len(m.Fixed32Map))
-		for k := range m.Fixed32Map {
+		for k, _ := range m.Fixed32Map {
 			keysForFixed32Map = append(keysForFixed32Map, uint32(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Uint32s(keysForFixed32Map)
@@ -4205,7 +4205,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Sfixed32Map) > 0 {
 		keysForSfixed32Map := make([]int32, 0, len(m.Sfixed32Map))
-		for k := range m.Sfixed32Map {
+		for k, _ := range m.Sfixed32Map {
 			keysForSfixed32Map = append(keysForSfixed32Map, int32(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Int32s(keysForSfixed32Map)
@@ -4225,7 +4225,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Fixed64Map) > 0 {
 		keysForFixed64Map := make([]uint64, 0, len(m.Fixed64Map))
-		for k := range m.Fixed64Map {
+		for k, _ := range m.Fixed64Map {
 			keysForFixed64Map = append(keysForFixed64Map, uint64(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Uint64s(keysForFixed64Map)
@@ -4245,7 +4245,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.Sfixed64Map) > 0 {
 		keysForSfixed64Map := make([]int64, 0, len(m.Sfixed64Map))
-		for k := range m.Sfixed64Map {
+		for k, _ := range m.Sfixed64Map {
 			keysForSfixed64Map = append(keysForSfixed64Map, int64(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Int64s(keysForSfixed64Map)
@@ -4265,7 +4265,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.BoolMap) > 0 {
 		keysForBoolMap := make([]bool, 0, len(m.BoolMap))
-		for k := range m.BoolMap {
+		for k, _ := range m.BoolMap {
 			keysForBoolMap = append(keysForBoolMap, bool(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Bools(keysForBoolMap)
@@ -4295,7 +4295,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.StringMap) > 0 {
 		keysForStringMap := make([]string, 0, len(m.StringMap))
-		for k := range m.StringMap {
+		for k, _ := range m.StringMap {
 			keysForStringMap = append(keysForStringMap, string(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Strings(keysForStringMap)
@@ -4317,7 +4317,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.StringToBytesMap) > 0 {
 		keysForStringToBytesMap := make([]string, 0, len(m.StringToBytesMap))
-		for k := range m.StringToBytesMap {
+		for k, _ := range m.StringToBytesMap {
 			keysForStringToBytesMap = append(keysForStringToBytesMap, string(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Strings(keysForStringToBytesMap)
@@ -4345,7 +4345,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.StringToEnumMap) > 0 {
 		keysForStringToEnumMap := make([]string, 0, len(m.StringToEnumMap))
-		for k := range m.StringToEnumMap {
+		for k, _ := range m.StringToEnumMap {
 			keysForStringToEnumMap = append(keysForStringToEnumMap, string(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Strings(keysForStringToEnumMap)
@@ -4368,7 +4368,7 @@ func (m *AllMapsOrdered) MarshalTo(data []byte) (int, error) {
 	}
 	if len(m.StringToMsgMap) > 0 {
 		keysForStringToMsgMap := make([]string, 0, len(m.StringToMsgMap))
-		for k := range m.StringToMsgMap {
+		for k, _ := range m.StringToMsgMap {
 			keysForStringToMsgMap = append(keysForStringToMsgMap, string(k))
 		}
 		github_com_maditya_protobuf_sortkeys.Strings(keysForStringToMsgMap)
