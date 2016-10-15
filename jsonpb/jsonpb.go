@@ -101,6 +101,19 @@ type isWkt interface {
 
 // marshalObject writes a struct to the Writer.
 func (m *Marshaler) marshalObject(out *errWriter, v proto.Message, indent, typeURL string) error {
+	// Prefer specialized marshalers if available
+	if mlr, ok := v.(json.Marshaler); ok {
+		bs, err := mlr.MarshalJSON()
+		if err != nil {
+			return err
+		}
+		if out.err != nil {
+			return out.err
+		}
+		_, out.err = out.writer.Write(bs)
+		return out.err
+	}
+
 	s := reflect.ValueOf(v).Elem()
 
 	// Handle well-known types.
@@ -626,6 +639,11 @@ func UnmarshalString(str string, pb proto.Message) error {
 // unmarshalValue converts/copies a value into the target.
 // prop may be nil.
 func (u *Unmarshaler) unmarshalValue(target reflect.Value, inputValue json.RawMessage, prop *proto.Properties) error {
+	// Prefer specialized marshalers if available
+	if ulr, ok := target.Addr().Interface().(json.Unmarshaler); ok {
+		return ulr.UnmarshalJSON(inputValue)
+	}
+
 	targetType := target.Type()
 
 	// Allocate memory for pointer fields.
