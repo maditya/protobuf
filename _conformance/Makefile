@@ -31,10 +31,10 @@
 
 regenerate:
 	protoc-min-version --version="3.0.0" --gogo_out=\
-	Mgoogle/protobuf/any.proto=github.com/gogo/protobuf/types,\
-	Mgoogle/protobuf/duration.proto=github.com/gogo/protobuf/types,\
-	Mgoogle/protobuf/struct.proto=github.com/gogo/protobuf/types,\
-	Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types,\
-	Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types,\
-	Mgoogle/protobuf/field_mask.proto=github.com/gogo/protobuf/types\
+	Mgoogle/protobuf/any.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/duration.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/struct.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/timestamp.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/wrappers.proto=github.com/maditya/protobuf/types,\
+	Mgoogle/protobuf/field_mask.proto=github.com/maditya/protobuf/types\
 	:. conformance_proto/conformance.proto

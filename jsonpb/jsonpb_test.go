@@ -39,10 +39,10 @@ import (
 	"strings"
 	"testing"
 
-	pb "github.com/gogo/protobuf/jsonpb/jsonpb_test_proto"
-	"github.com/gogo/protobuf/proto"
-	proto3pb "github.com/gogo/protobuf/proto/proto3_proto"
-	"github.com/gogo/protobuf/types"
+	pb "github.com/maditya/protobuf/jsonpb/jsonpb_test_proto"
+	"github.com/maditya/protobuf/proto"
+	proto3pb "github.com/maditya/protobuf/proto/proto3_proto"
+	"github.com/maditya/protobuf/types"
 )
 
 var (

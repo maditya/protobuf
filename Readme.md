@@ -1,6 +1,6 @@
 # Protocol Buffers for Go with Gadgets
 
-[![Build Status](https://travis-ci.org/gogo/protobuf.svg?branch=master)](https://travis-ci.org/gogo/protobuf)
+[![Build Status](https://travis-ci.org/maditya/protobuf.svg?branch=master)](https://travis-ci.org/maditya/protobuf)
 
 gogoprotobuf is a fork of <a href="https://github.com/golang/protobuf">golang/protobuf</a> with extra code generation features.
 
@@ -14,7 +14,7 @@ This code generation is used to achieve:
   - other serialization formats
 
 Keeping track of how up to date gogoprotobuf is relative to golang/protobuf is done in this
-<a href="https://github.com/gogo/protobuf/issues/191">issue</a>
+<a href="https://github.com/maditya/protobuf/issues/191">issue</a>
 
 ## Users
 
@@ -24,7 +24,7 @@ These projects use gogoprotobuf:
   - <a href="https://www.spacemonkey.com/">spacemonkey</a> - <a href="https://www.spacemonkey.com/blog/posts/go-space-monkey">blog</a>
   - <a href="http://badoo.com">badoo</a> - <a href="https://github.com/badoo/lsd/blob/32061f501c5eca9c76c596d790b450501ba27b2f/proto/lsd.proto">sample proto file</a>
   - <a href="https://github.com/mesos/mesos-go">mesos-go</a> - <a href="https://github.com/mesos/mesos-go/blob/master/mesosproto/mesos.proto">sample proto file</a>
-  - <a href="https://github.com/mozilla-services/heka">heka</a> - <a href="https://github.com/mozilla-services/heka/commit/eb72fbf7d2d28249fbaf8d8dc6607f4eb6f03351">the switch from golang/protobuf to gogo/protobuf when it was still on code.google.com</a>
+  - <a href="https://github.com/mozilla-services/heka">heka</a> - <a href="https://github.com/mozilla-services/heka/commit/eb72fbf7d2d28249fbaf8d8dc6607f4eb6f03351">the switch from golang/protobuf to maditya/protobuf when it was still on code.google.com</a>
   - <a href="https://github.com/cockroachdb/cockroach">cockroachdb</a> - <a href="https://github.com/cockroachdb/cockroach/blob/651d54d393e391a30154e9117ab4b18d9ee6d845/roachpb/metadata.proto">sample proto file</a>
   - <a href="https://github.com/jbenet/go-ipfs">go-ipfs</a> - <a href="https://github.com/ipfs/go-ipfs/blob/2b6da0c024f28abeb16947fb452787196a6b56a2/merkledag/pb/merkledag.proto">sample proto file</a>
   - <a href="https://github.com/philhofer/rkive">rkive-go</a> - <a href="https://github.com/philhofer/rkive/blob/e5dd884d3ea07b341321073882ae28aa16dd11be/rpbc/riak_dt.proto">sample proto file</a>
@@ -67,13 +67,13 @@ Most versions from 2.3.1 should not give any problems, but 2.5.0, 2.6.1 and 3.0.
 
 Install the protoc-gen-gofast binary
 
-    go get github.com/gogo/protobuf/protoc-gen-gofast
+    go get github.com/maditya/protobuf/protoc-gen-gofast
 
 Use it to generate faster marshaling and unmarshaling go code for your protocol buffers.
 
     protoc --gofast_out=. myproto.proto
 
-This does not allow you to use any of the other gogoprotobuf [extensions](https://github.com/gogo/protobuf/blob/master/extensions.md).
+This does not allow you to use any of the other gogoprotobuf [extensions](https://github.com/maditya/protobuf/blob/master/extensions.md).
 
 ### More Speed and more generated code
 
@@ -88,25 +88,25 @@ Other binaries are also included:
 
 Installing any of these binaries is easy.  Simply run:
 
-    go get github.com/gogo/protobuf/proto
-    go get github.com/gogo/protobuf/{binary}
-    go get github.com/gogo/protobuf/gogoproto
+    go get github.com/maditya/protobuf/proto
+    go get github.com/maditya/protobuf/{binary}
+    go get github.com/maditya/protobuf/gogoproto
 
-These binaries allow you to using gogoprotobuf [extensions](https://github.com/gogo/protobuf/blob/master/extensions.md).
+These binaries allow you to using gogoprotobuf [extensions](https://github.com/maditya/protobuf/blob/master/extensions.md).
 
 ### Most Speed and most customization
 
 Customizing the fields of the messages to be the fields that you actually want to use removes the need to copy between the structs you use and structs you use to serialize.
 gogoprotobuf also offers more serialization formats and generation of tests and even more methods.
 
-Please visit the [extensions](https://github.com/gogo/protobuf/blob/master/extensions.md) page for more documentation.
+Please visit the [extensions](https://github.com/maditya/protobuf/blob/master/extensions.md) page for more documentation.
 
 Install protoc-gen-gogo:
 
-    go get github.com/gogo/protobuf/proto
-    go get github.com/gogo/protobuf/jsonpb
-    go get github.com/gogo/protobuf/protoc-gen-gogo
-    go get github.com/gogo/protobuf/gogoproto
+    go get github.com/maditya/protobuf/proto
+    go get github.com/maditya/protobuf/jsonpb
+    go get github.com/maditya/protobuf/protoc-gen-gogo
+    go get github.com/maditya/protobuf/gogoproto
 
 ## GRPC
 
